@@ -9,12 +9,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_xonyo")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1016185975]
-layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 647.0
-color = Color(0.8352941, 0.80784315, 0.74509805, 1)
-
 [node name="InfoDia" type="Label" parent="." unique_id=1535243175]
 layout_mode = 0
 offset_right = 91.0
