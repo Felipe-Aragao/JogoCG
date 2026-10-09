@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://b6hk6f8d6jpwh"]
+
+[ext_resource type="Script" uid="uid://dje3oiv1jdqng" path="res://scenes/vendas.gd" id="1_xonyo"]
+
+[node name="CenaVendas" type="Control" unique_id=1240857978]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xonyo")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1016185975]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 647.0
+color = Color(0.8352941, 0.80784315, 0.74509805, 1)
+
+[node name="InfoDia" type="Label" parent="." unique_id=1535243175]
+layout_mode = 0
+offset_right = 91.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
+
+[node name="TextoCliente" type="Label" parent="." unique_id=1033084085]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 81.0
+offset_right = 155.0
+offset_bottom = 128.0
+theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="Entrada" type="LineEdit" parent="." unique_id=1102845722]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 221.0
+offset_right = 663.0
+offset_bottom = 305.0
+theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
+
+[node name="ButtonConfirma" type="Button" parent="." unique_id=507574054]
+layout_mode = 0
+offset_left = 561.0
+offset_top = 312.0
+offset_right = 695.0
+offset_bottom = 386.0
+
+[node name="Confirma" type="Label" parent="ButtonConfirma" unique_id=480094228]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 22.0
+offset_right = 83.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
+
+[node name="Feedback" type="Label" parent="." unique_id=1791606917]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 180.0
+offset_right = 68.0
+offset_bottom = 203.0
+
+[node name="ButtonProxDia" type="Button" parent="." unique_id=1653280828]
+layout_mode = 0
+offset_left = 970.0
+offset_top = 41.0
+offset_right = 1062.0
+offset_bottom = 96.0
+
+[node name="Próximo dia" type="Label" parent="ButtonProxDia" unique_id=1875888499]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 13.0
+offset_right = 50.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
+
+[node name="ButtonAjuda" type="Button" parent="." unique_id=245968668]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 314.0
+offset_right = 519.0
+offset_bottom = 381.0
+
+[node name="Ajuda" type="Label" parent="ButtonAjuda" unique_id=1297333080]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 17.0
+offset_right = 54.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
+
+[node name="Curiosidade" type="Label" parent="." unique_id=1117584976]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 459.0
+offset_right = 67.0
+offset_bottom = 482.0
+theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
+
+[connection signal="pressed" from="ButtonConfirma" to="." method="_on_button_confirma_pressed"]
+[connection signal="pressed" from="ButtonProxDia" to="." method="_on_button_prox_dia_pressed"]
+[connection signal="pressed" from="ButtonAjuda" to="." method="_on_button_ajuda_pressed"]
