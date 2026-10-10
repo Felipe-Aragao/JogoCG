@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bs0vku7xc8krn"]
 
-[ext_resource type="Script" uid="uid://bnmt1mqroj3i6" path="res://new_sscript.gd" id="1_1h3ma"]
-[ext_resource type="AudioStream" uid="uid://bc72fmpwpopde" path="res://sounds/grass.wav" id="2_xtula"]
-[ext_resource type="AudioStream" uid="uid://cawq0c4e8dwy0" path="res://sounds/water.wav" id="3_cd73h"]
+[ext_resource type="Script" uid="uid://bnmt1mqroj3i6" path="res://scenes/new_sscript.gd" id="1_8ci8k"]
+[ext_resource type="AudioStream" uid="uid://bc72fmpwpopde" path="res://sounds/grass.wav" id="2_67lp1"]
+[ext_resource type="AudioStream" uid="uid://cawq0c4e8dwy0" path="res://sounds/water.wav" id="3_1jl4f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s575f"]
 
@@ -10,9 +10,9 @@
 height = 1.7387695
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=299560997]
-script = ExtResource("1_1h3ma")
-som_terra = ExtResource("2_xtula")
-som_agua = ExtResource("3_cd73h")
+script = ExtResource("1_8ci8k")
+som_terra = ExtResource("2_67lp1")
+som_agua = ExtResource("3_1jl4f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=391301665]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.25253743, 0)
@@ -24,6 +24,7 @@ mesh = SubResource("CapsuleMesh_s575f")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1208314329]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 0.23, 0.21)
+fov = 74.07965
 
 [node name="SomPassos" type="AudioStreamPlayer" parent="." unique_id=796503898]
-stream = ExtResource("2_xtula")
+stream = ExtResource("2_67lp1")

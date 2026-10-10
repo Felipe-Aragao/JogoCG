@@ -10,6 +10,7 @@ extends Control
 @onready var proximoDia = $"ButtonProxDia/Próximo dia"
 @onready var ajuda = $ButtonAjuda/Ajuda
 @onready var curiosidade = $Curiosidade
+@onready var sair = $ButtonSair/Sair
 
 var dica: String = ""
 var precoPorcao: float = 5.0
@@ -65,7 +66,7 @@ var frases_historicas = {
 	],
 	"Hermeto Pascoal": [
 		"Até as conchas fazem música! Bota %d %s pra mim. Que som dá esse total?",
-		"Que sinfonia de sabores! Vou levar %d %s. Se cada um sai por R$ %.2f, qual o resultado da partitura?"
+		"Que sinfonia de sabores! Vou levar %d %s. Qual o resultado da partitura?"
 	],
 	"Dandara dos Palmares": [
 		"Nenhuma guerreira luta com fome. Separe %d %s de sururu. Qual o valor para o nosso povo?",
@@ -74,10 +75,14 @@ var frases_historicas = {
 }
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	atualizar_interface()
 	gerar_novo_cliente()
+	
+	entrada.grab_focus()
 
 func atualizar_interface():
+	sair.text = "sair"
 	ajuda.text = "Ajuda"
 	proximoDia.text = "Proximo dia"
 	confirma.text = "Confirmar"
@@ -158,3 +163,9 @@ func _on_button_ajuda_pressed() -> void:
 	if Global.sururuEstoque <= 0:
 		return
 	feedback.text = dica
+
+
+func _on_button_sair_pressed() -> void:
+	Global.venda = false
+	get_parent().visible = false 
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

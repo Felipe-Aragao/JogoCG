@@ -15,6 +15,7 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event):
+	if Global.venda: return 
 	if event is InputEventMouseMotion:
 		# Rotaciona o corpo inteiro no eixo Y 
 		rotate_y(-event.relative.x * sensibilidade_rato)
@@ -63,8 +64,6 @@ func _physics_process(delta):
 	else:
 		# Se parar de andar ou saltar, interrompe o som imediatamente
 		$SomPassos.stop()
-
-
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body == self:
