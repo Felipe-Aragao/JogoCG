@@ -42,6 +42,7 @@ theme_override_colors/font_color = Color(0.8679181, 0.86802036, 0.93462974, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_3tmwe")
 theme_override_font_sizes/font_size = 18
+placeholder_text = "Digite o valor aqui"
 
 [node name="ButtonConfirma" type="Button" parent="." unique_id=507574054]
 layout_mode = 0

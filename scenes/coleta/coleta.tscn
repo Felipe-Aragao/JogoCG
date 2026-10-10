@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://tqvvjg00qnxt"]
+
+[ext_resource type="Script" uid="uid://bqhy5a4l85t6t" path="res://scenes/coleta/coleta.gd" id="1_k6von"]
+[ext_resource type="PackedScene" uid="uid://cyuaua13gkx7s" path="res://scenes/sururu/sururu.tscn" id="2_f7ikl"]
+[ext_resource type="PackedScene" uid="uid://bym6a5jhroptf" path="res://scenes/coleta/coleta_teste.tscn" id="3_6g45r"]
+[ext_resource type="PackedScene" uid="uid://dsplrl4776br1" path="res://scenes/barco_madeira/barco_teste.tscn" id="4_aby3l"]
+[ext_resource type="FontFile" uid="uid://0lxqlx4d0550" path="res://fontes/SedgwickAveDisplay-Regular.ttf" id="5_l8dpl"]
+
+[sub_resource type="Environment" id="Environment_vtrxb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wn222"]
+albedo_color = Color(0.25882354, 0.14901961, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s575f"]
+size = Vector3(17.298346, 3.1523438, 16.639965)
+
+[node name="Coleta" type="Node3D" unique_id=1661856497]
+script = ExtResource("1_k6von")
+cena_sururu = ExtResource("2_f7ikl")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=968657537]
+environment = SubResource("Environment_vtrxb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1563936716]
+transform = Transform3D(0.65764606, 0.34830153, 0.667973, -0.7356714, 0.10609165, 0.6689784, 0.16213973, -0.93135995, 0.32600573, 0, 15.35, 0)
+
+[node name="plano" parent="." unique_id=1826201638 instance=ExtResource("3_6g45r")]
+
+[node name="Barco" parent="." unique_id=1364192051 instance=ExtResource("4_aby3l")]
+transform = Transform3D(-0.98768836, 0, -0.15643437, 0, 1, 0, 0.15643437, 0, -0.98768836, 15.475, 0.235, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1884973260]
+transform = Transform3D(43, 0, 0, 0, 1.17, 0, 0, 0, 43, -0.9043007, -0.49, -0.3953514)
+use_collision = true
+size = Vector3(4.3200684, 1, 4.3320313)
+material = SubResource("StandardMaterial3D_wn222")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1270404210]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1779581080]
+transform = Transform3D(0.7514001, 0, 0.65984684, 0, 1, 0, -0.65984684, 0, 0.7514001, 0.37456608, 1.1900787, -0.121761054)
+shape = SubResource("BoxShape3D_s575f")
+
+[node name="Coletaveis" type="Node3D" parent="." unique_id=110123117]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=991323060]
+
+[node name="voltar" type="Label" parent="CanvasLayer" unique_id=906578445]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_l8dpl")
+theme_override_font_sizes/font_size = 30
+text = "Pressione \"Q\" para voltar à tenda."

@@ -3,7 +3,7 @@ extends Node
 var sururuEstoque: int = 10  #valor de teste
 var dinheiro: float = 0.0
 var diaAtual: int = 1
-var cliente = "zumbi dos palmares"
+#var cliente = "zumbi dos palmares"
 var venda: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

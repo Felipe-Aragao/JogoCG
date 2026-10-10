@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://dsplrl4776br1"]
+
+[ext_resource type="Script" uid="uid://b4gi41b1wpbon" path="res://scenes/barco_madeira/barco_teste.gd" id="1_c7ji2"]
+[ext_resource type="PackedScene" uid="uid://bxir514qhpb13" path="res://models/boat/barco.glb" id="2_thdd4"]
+[ext_resource type="PackedScene" uid="uid://jfj0rcoj5syt" path="res://models/remo/remo.glb" id="3_f66gi"]
+[ext_resource type="AudioStream" uid="uid://bkpv48m0owd5d" path="res://sounds/rowing.wav" id="4_x42o3"]
+[ext_resource type="AudioStream" uid="uid://c8y8y24a48vvc" path="res://sounds/collect.wav" id="5_4uia3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s575f"]
+size = Vector3(0.59085083, 0.75683594, 1)
+
+[sub_resource type="Animation" id="Animation_x42o3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RemoDir/remoDir:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0.7853982)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RemoEsq/remoEsq:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.7853982, 1.5707964, -0.7853982)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RemoDir/remoDir:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.02, 0.2, -1.713)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RemoEsq/remoEsq:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.02, 0.2, 1.152)]
+}
+
+[sub_resource type="Animation" id="Animation_4uia3"]
+resource_name = "Remar"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RemoDir/remoDir:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0.7853982), Vector3(-1.0471976, 1.5707964, 0.7853982)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RemoEsq/remoEsq:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, -0.7853982), Vector3(-1.0471976, 1.5707964, -0.7853982)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RemoDir/remoDir:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.02, 0.4, -1.713), Vector3(0.02, -0.1, -1.713)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RemoEsq/remoEsq:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.02, 0.4, 1.152), Vector3(0.02, -0.1, 1.152)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ird2j"]
+_data = {
+&"RESET": SubResource("Animation_x42o3"),
+&"Remar": SubResource("Animation_4uia3")
+}
+
+[node name="BarcoTeste" type="CharacterBody3D" unique_id=1364192051]
+script = ExtResource("1_c7ji2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=962491118]
+transform = Transform3D(-0.043721154, 0, -3.9097557, 0, 3.91, 0, 3.9097557, 0, -0.043721154, 0.22914933, 1.4561062, -0.6806999)
+shape = SubResource("BoxShape3D_s575f")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=58099737]
+transform = Transform3D(0.9999375, 0, -0.011181837, 0, 1, 0, 0.011181837, 0, 0.9999375, 0.7421013, 1.6542859, 1.4598451)
+
+[node name="barco" parent="." unique_id=1950868523 instance=ExtResource("2_thdd4")]
+transform = Transform3D(-0.011181881, 0, -0.9999375, 0, 1, 0, 0.9999375, 0, -0.011181881, 0.22644278, 0, -0.43866682)
+
+[node name="RemoDir" type="Node3D" parent="." unique_id=1107818361]
+transform = Transform3D(-0.0096837925, -0.0055909404, -0.9999375, -0.5, 0.8660254, 0, 0.86597127, 0.49996874, -0.011181881, 0.22644278, 0.100000024, -0.43866682)
+
+[node name="remoDir" parent="RemoDir" unique_id=1097522273 instance=ExtResource("3_f66gi")]
+transform = Transform3D(-3.0908616e-08, 3.0908616e-08, 0.9999998, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, -4.371138e-08, 0.02, 0.2, -1.713)
+
+[node name="RemoEsq" type="Node3D" parent="." unique_id=1812386141]
+transform = Transform3D(-0.0096837925, -0.0055909404, -0.9999375, -0.5, 0.8660254, 0, 0.86597127, 0.49996874, -0.011181881, 0.22644278, 0.100000024, -0.43866682)
+
+[node name="remoEsq" parent="RemoEsq" unique_id=1753535584 instance=ExtResource("3_f66gi")]
+transform = Transform3D(0.49999985, -0.49999994, 0.7071067, -0.49999988, 0.4999999, 0.7071067, -0.70710665, -0.7071067, -3.0908616e-08, 0.02, 0.2, 1.152)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=426048445]
+libraries/ = SubResource("AnimationLibrary_ird2j")
+
+[node name="SomAgua" type="AudioStreamPlayer" parent="." unique_id=583922263]
+stream = ExtResource("4_x42o3")
+
+[node name="SomColeta" type="AudioStreamPlayer" parent="." unique_id=1991872462]
+stream = ExtResource("5_4uia3")

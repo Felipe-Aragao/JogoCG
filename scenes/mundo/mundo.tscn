@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dnauh4mq0qm42"]
 
-[ext_resource type="Script" uid="uid://ci3fhqnivtei1" path="res://scenes/tenda/mundo.gd" id="1_8axob"]
-[ext_resource type="PackedScene" uid="uid://b6hk6f8d6jpwh" path="res://scenes/tenda/vendas.tscn" id="1_bxmex"]
-[ext_resource type="PackedScene" uid="uid://bs0vku7xc8krn" path="res://scenes/tenda/jogad.tscn" id="2_8axob"]
-[ext_resource type="PackedScene" uid="uid://dr6vutmikovqr" path="res://scenes/tenda/tenda_lagoa.tscn" id="3_6807b"]
-[ext_resource type="FontFile" uid="uid://0lxqlx4d0550" path="res://fontes/SedgwickAveDisplay-Regular.ttf" id="5_6807b"]
+[ext_resource type="Script" uid="uid://ci3fhqnivtei1" path="res://scenes/mundo/mundo.gd" id="1_0r531"]
+[ext_resource type="PackedScene" uid="uid://b6hk6f8d6jpwh" path="res://scenes/tenda/vendas.tscn" id="2_wajt0"]
+[ext_resource type="PackedScene" uid="uid://bs0vku7xc8krn" path="res://scenes/tenda/jogad.tscn" id="3_kdk4d"]
+[ext_resource type="PackedScene" uid="uid://dr6vutmikovqr" path="res://scenes/tenda/tenda_lagoa.tscn" id="4_giaku"]
+[ext_resource type="FontFile" uid="uid://0lxqlx4d0550" path="res://fontes/SedgwickAveDisplay-Regular.ttf" id="5_cs5nd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_05uab"]
 
@@ -25,7 +25,7 @@ size = Vector3(11.916237, 1, 12.065685)
 size = Vector3(2.5422058, 6.2126465, 2.6486816)
 
 [node name="Mundo" type="Node3D" unique_id=462846195]
-script = ExtResource("1_8axob")
+script = ExtResource("1_0r531")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=725608115]
 transform = Transform3D(1, 0, 0, 0, -0.24087846, 0.9705553, 0, -0.9705553, -0.24087846, -9.411821, 4.2942934, -10.742998)
@@ -51,12 +51,12 @@ shape = SubResource("BoxShape3D_vq7ns")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1284760781]
 
-[node name="CenaVendas" parent="CanvasLayer" unique_id=1240857978 instance=ExtResource("1_bxmex")]
+[node name="CenaVendas" parent="CanvasLayer" unique_id=1240857978 instance=ExtResource("2_wajt0")]
 
-[node name="CharacterBody3D" parent="." unique_id=299560997 instance=ExtResource("2_8axob")]
+[node name="CharacterBody3D" parent="." unique_id=299560997 instance=ExtResource("3_kdk4d")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.70947313, 1.1254086, -3.1413085)
 
-[node name="TendaLagoa2" parent="." unique_id=120857903 instance=ExtResource("3_6807b")]
+[node name="TendaLagoa2" parent="." unique_id=120857903 instance=ExtResource("4_giaku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.369151, 0, -2.7871346)
 
 [node name="Area3D2" type="Area3D" parent="." unique_id=1536296709]
@@ -75,7 +75,7 @@ offset_right = 406.0
 offset_bottom = 577.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("5_6807b")
+theme_override_fonts/font = ExtResource("5_cs5nd")
 theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1

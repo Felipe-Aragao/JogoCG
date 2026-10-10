@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bym6a5jhroptf"]
+
+[ext_resource type="PackedScene" uid="uid://bwy1j0r4ugtmr" path="res://models/coleta/coleta.glb" id="1_dg6hq"]
+
+[node name="coleta" unique_id=1826201638 instance=ExtResource("1_dg6hq")]
+
+[node name="Plane" parent="." index="31" unique_id=624148627]
+transform = Transform3D(-93.453, 0, 0, 0, -93.453, 0, 0, 0, -93.453, -0.5953541, 0.27103162, 0.26181316)

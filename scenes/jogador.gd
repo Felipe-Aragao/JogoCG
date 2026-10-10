@@ -15,7 +15,7 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event):
-	if Global.venda: return 
+	if Global.venda : return 
 	if event is InputEventMouseMotion:
 		# Rotaciona o corpo inteiro no eixo Y 
 		rotate_y(-event.relative.x * sensibilidade_rato)

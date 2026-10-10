@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://bss2gb5i228d4"]
 
 [ext_resource type="PackedScene" uid="uid://7pb1odyea3dd" path="res://scenes/barco.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://cyuaua13gkx7s" path="res://scenes/sururu/sururu.tscn" id="2_yqjtg"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8cj0n"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yqjtg"]
 
 [sub_resource type="Sky" id="Sky_uwrxv"]
-sky_material = SubResource("ProceduralSkyMaterial_8cj0n")
+sky_material = SubResource("ProceduralSkyMaterial_yqjtg")
 
 [sub_resource type="Environment" id="Environment_yqjtg"]
 background_mode = 2
 sky = SubResource("Sky_uwrxv")
 glow_enabled = true
+glow_intensity = 0.8
 
 [node name="Game" type="Node3D" unique_id=1696587631]
 
@@ -30,3 +30,15 @@ size = Vector3(40, 0.3, 40)
 
 [node name="Barco" parent="." unique_id=1429319015 instance=ExtResource("1_uwrxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24232674, -0.20000076, 0.22156715)
+
+[node name="Sururu" parent="." unique_id=1371594566 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3697333, 0, -4.2317977)
+
+[node name="Sururu2" parent="." unique_id=1943666992 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2082925, 0, 0)
+
+[node name="Sururu3" parent="." unique_id=1818895819 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.623602, 0, -6.635339)
+
+[node name="Sururu4" parent="." unique_id=101189504 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8835154, 0, 9.767378)

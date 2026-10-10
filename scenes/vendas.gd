@@ -75,11 +75,11 @@ var frases_historicas = {
 }
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	atualizar_interface()
 	gerar_novo_cliente()
 	
-	entrada.grab_focus()
+	#entrada.grab_focus()
 
 func atualizar_interface():
 	sair.text = "sair"
@@ -145,7 +145,7 @@ func _on_button_confirma_pressed() -> void:
 		await get_tree().create_timer(1.5).timeout
 		gerar_novo_cliente()
 	elif respostaJogador < respostaCorreta - 1:
-		feedback.text = "Você errou, o cliente achou que era golpe pelo preço baixo! "
+		feedback.text = "Você errou! O cliente achou que era golpe pelo preço baixo! "
 		await get_tree().create_timer(2).timeout
 		gerar_novo_cliente()
 	else:
@@ -156,7 +156,8 @@ func _on_button_confirma_pressed() -> void:
 
 func _on_button_prox_dia_pressed() -> void:
 	Global.diaAtual += 1 
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	Global.venda = false
+	get_tree().change_scene_to_file("res://scenes/coleta/coleta.tscn")
 
 
 func _on_button_ajuda_pressed() -> void:
@@ -169,3 +170,4 @@ func _on_button_sair_pressed() -> void:
 	Global.venda = false
 	get_parent().visible = false 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	get_node("/root/Mundo/HUD/Legenda").visible = true

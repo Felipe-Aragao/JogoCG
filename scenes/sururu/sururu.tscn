@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cyuaua13gkx7s"]
+
+[ext_resource type="Script" uid="uid://0t1copffvqoo" path="res://scenes/sururu/sururu.gd" id="1_welot"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vq7ns"]
+albedo_color = Color(0.22352941, 1, 0.05490196, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_s575f"]
+material = SubResource("StandardMaterial3D_vq7ns")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s575f"]
+
+[node name="Sururu" type="Area3D" unique_id=1371594566]
+script = ExtResource("1_welot")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2141098539]
+transform = Transform3D(0.28, 0, 0, 0, 0.28, 0, 0, 0, 0.28, 0, 0, 0)
+mesh = SubResource("SphereMesh_s575f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=566653457]
+transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, 0, 0, 0)
+shape = SubResource("SphereShape3D_s575f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
