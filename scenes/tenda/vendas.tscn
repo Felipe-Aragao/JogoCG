@@ -5,136 +5,230 @@
 
 [node name="CenaVendas" type="Control" unique_id=1240857978]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_xonyo")
 
-[node name="InfoDia" type="Label" parent="." unique_id=1535243175]
-layout_mode = 0
-offset_right = 91.0
-offset_bottom = 33.0
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=798752873]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Estoque" type="Panel" parent="HBoxContainer" unique_id=2128276296]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Estoque" unique_id=11722112]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Estoque/MarginContainer" unique_id=1480230614]
+layout_mode = 2
+
+[node name="InfoDia" type="Label" parent="HBoxContainer/Estoque/MarginContainer/VBoxContainer" unique_id=1535243175]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_3tmwe")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
+autowrap_mode = 3
 
-[node name="TextoCliente" type="Label" parent="." unique_id=1033084085]
-layout_mode = 0
-offset_left = -2.0
-offset_top = 140.0
-offset_right = 115.0
-offset_bottom = 187.0
+[node name="Central" type="Control" parent="HBoxContainer" unique_id=334920445]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Central" unique_id=285786937]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextoCliente" type="Label" parent="HBoxContainer/Central/MarginContainer" unique_id=1033084085]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("2_3tmwe")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="Entrada" type="LineEdit" parent="." unique_id=1102845722]
-layout_mode = 0
-offset_left = 444.0
-offset_top = 221.0
-offset_right = 663.0
-offset_bottom = 305.0
+[node name="Math" type="Panel" parent="HBoxContainer" unique_id=655869761]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Math" unique_id=909419493]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Math/MarginContainer" unique_id=757367505]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Entrada" type="LineEdit" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=1102845722]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.8679181, 0.86802036, 0.93462974, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_3tmwe")
 theme_override_font_sizes/font_size = 18
 placeholder_text = "Digite o valor aqui"
 
-[node name="ButtonConfirma" type="Button" parent="." unique_id=507574054]
-layout_mode = 0
-offset_left = 561.0
-offset_top = 312.0
-offset_right = 695.0
-offset_bottom = 386.0
+[node name="ButtonConfirma" type="Button" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=507574054]
+layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Confirma" type="Label" parent="ButtonConfirma" unique_id=480094228]
-layout_mode = 0
-offset_left = 43.0
-offset_top = 22.0
-offset_right = 83.0
-offset_bottom = 45.0
-theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-
-[node name="Feedback" type="Label" parent="." unique_id=1791606917]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 180.0
-offset_right = 68.0
-offset_bottom = 203.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("2_3tmwe")
-theme_override_font_sizes/font_size = 18
-
-[node name="ButtonProxDia" type="Button" parent="." unique_id=1653280828]
-layout_mode = 0
-offset_left = 992.0
-offset_top = 56.0
-offset_right = 1129.0
-offset_bottom = 110.0
-
-[node name="Próximo dia" type="Label" parent="ButtonProxDia" unique_id=1875888499]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 16.0
-offset_right = 65.0
-offset_bottom = 39.0
+[node name="Confirma" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonConfirma" unique_id=480094228]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -11.5
+offset_right = 125.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_3tmwe")
-theme_override_font_sizes/font_size = 18
-
-[node name="ButtonAjuda" type="Button" parent="." unique_id=245968668]
-layout_mode = 0
-offset_left = 434.0
-offset_top = 314.0
-offset_right = 519.0
-offset_bottom = 381.0
-
-[node name="Ajuda" type="Label" parent="ButtonAjuda" unique_id=1297333080]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 64.0
-offset_bottom = 48.0
-theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_3tmwe")
-
-[node name="Curiosidade" type="Label" parent="." unique_id=1117584976]
-layout_mode = 0
-offset_top = 459.0
-offset_right = 40.0
-offset_bottom = 482.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("2_3tmwe")
-theme_override_font_sizes/font_size = 18
-
-[node name="ButtonSair" type="Button" parent="." unique_id=1081099940]
-layout_mode = 0
-offset_left = 195.0
-offset_top = 568.0
-offset_right = 230.0
-offset_bottom = 588.0
-
-[node name="Sair" type="Label" parent="ButtonSair" unique_id=733175962]
-layout_mode = 0
-offset_left = -2.0
-offset_top = -1.0
-offset_right = 38.0
-offset_bottom = 22.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
 
-[connection signal="pressed" from="ButtonConfirma" to="." method="_on_button_confirma_pressed"]
-[connection signal="pressed" from="ButtonProxDia" to="." method="_on_button_prox_dia_pressed"]
-[connection signal="pressed" from="ButtonAjuda" to="." method="_on_button_ajuda_pressed"]
-[connection signal="pressed" from="ButtonSair" to="." method="_on_button_sair_pressed"]
+[node name="Feedback" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=1791606917]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_3tmwe")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
+[node name="ButtonProxDia" type="Button" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=1653280828]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Próximo dia" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonProxDia" unique_id=1875888499]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -13.0
+offset_right = 125.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_3tmwe")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
+[node name="ButtonAjuda" type="Button" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=245968668]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Ajuda" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonAjuda" unique_id=1297333080]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -11.5
+offset_right = 125.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_3tmwe")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
+[node name="Curiosidade" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=1117584976]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_3tmwe")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
+[node name="ButtonSair" type="Button" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=1081099940]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sair" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonSair" unique_id=733175962]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -14.0
+offset_right = 125.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_3tmwe")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
+[connection signal="pressed" from="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonConfirma" to="." method="_on_button_confirma_pressed"]
+[connection signal="pressed" from="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonProxDia" to="." method="_on_button_prox_dia_pressed"]
+[connection signal="pressed" from="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonAjuda" to="." method="_on_button_ajuda_pressed"]
+[connection signal="pressed" from="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonSair" to="." method="_on_button_sair_pressed"]

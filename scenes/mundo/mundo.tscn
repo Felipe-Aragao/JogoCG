@@ -5,6 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://bs0vku7xc8krn" path="res://scenes/tenda/jogad.tscn" id="3_kdk4d"]
 [ext_resource type="PackedScene" uid="uid://dr6vutmikovqr" path="res://scenes/tenda/tenda_lagoa.tscn" id="4_giaku"]
 [ext_resource type="FontFile" uid="uid://0lxqlx4d0550" path="res://fontes/SedgwickAveDisplay-Regular.ttf" id="5_cs5nd"]
+[ext_resource type="Texture2D" uid="uid://df33mffhcxckv" path="res://personagens/palmares.png" id="6_wajt0"]
+[ext_resource type="Texture2D" uid="uid://66t8ubdtyv80" path="res://personagens/graciliano.png" id="7_kdk4d"]
+[ext_resource type="Texture2D" uid="uid://clsb0ddawujlh" path="res://personagens/nise.png" id="8_sh3s5"]
+[ext_resource type="Texture2D" uid="uid://c43gbyqwt4ljl" path="res://personagens/deodoro.png" id="9_sh3s5"]
+[ext_resource type="Texture2D" uid="uid://kjoejytux4mc" path="res://personagens/hermeto.png" id="10_55pe8"]
+[ext_resource type="Texture2D" uid="uid://xr4o68dpw3ci" path="res://personagens/Dandara.png" id="11_7n5et"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_05uab"]
 
@@ -54,7 +60,7 @@ shape = SubResource("BoxShape3D_vq7ns")
 [node name="CenaVendas" parent="CanvasLayer" unique_id=1240857978 instance=ExtResource("2_wajt0")]
 
 [node name="CharacterBody3D" parent="." unique_id=299560997 instance=ExtResource("3_kdk4d")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.70947313, 1.1254086, -3.1413085)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.9467297, 1.1254086, -2.7476888)
 
 [node name="TendaLagoa2" parent="." unique_id=120857903 instance=ExtResource("4_giaku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.369151, 0, -2.7871346)
@@ -63,22 +69,69 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.369151, 0, -2.7871346)
 transform = Transform3D(-0.00017846933, -0.0029179454, -0.33498725, 0.33437517, -0.02045128, 0, -0.0204505, -0.33436242, 0.002923398, -0.3405199, 1.4085655, -5.6403303)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" unique_id=337636899]
-transform = Transform3D(1.0800034, 0, 0, 0, 1.0793421, -0.037691455, 0, 0.037691455, 1.0793421, -2.0483909, -7.379756, 0.66637087)
+transform = Transform3D(1.0800034, -2.9802322e-08, 9.313226e-10, 0, 1.0793421, -0.03769145, 0, 0.03769146, 1.0793421, -2.123065, -8.600654, -9.849884)
 shape = SubResource("BoxShape3D_s575f")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=531053592]
 
 [node name="Legenda" type="Label" parent="HUD" unique_id=256646193]
-offset_left = 304.0
-offset_top = 522.0
-offset_right = 406.0
-offset_bottom = 577.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("5_cs5nd")
 theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Clientes" type="Node3D" parent="." unique_id=2044320224]
+transform = Transform3D(0.415, 0, 0, 0, 0.415, 0, 0, 0, 0.415, 1.2716147, 0.8, -2.217913)
+
+[node name="Zumbi" type="Sprite3D" parent="Clientes" unique_id=1925465982]
+transform = Transform3D(0.5202921, 0, 1.3319895, 0, 1.43, 0, -1.3319895, 0, 0.5202921, 1.0668483, 0.58065426, 1.3375401)
+visible = false
+billboard = 2
+alpha_cut = 1
+texture = ExtResource("6_wajt0")
+
+[node name="Graciliano" type="Sprite3D" parent="Clientes" unique_id=409328780]
+transform = Transform3D(0.3329142, 0, 0.85228705, 0, 0.915, 0, -0.85228705, 0, 0.3329142, 1.2656918, 1.1508647, 1.5400035)
+visible = false
+billboard = 2
+alpha_cut = 1
+texture = ExtResource("7_kdk4d")
+
+[node name="Nise" type="Sprite3D" parent="Clientes" unique_id=1094196048]
+transform = Transform3D(0.07094892, 0, 0.18163493, 0, 0.195, 0, -0.18163493, 0, 0.07094892, 1.2656918, 1.3822118, 0.6783128)
+billboard = 2
+alpha_cut = 1
+texture = ExtResource("8_sh3s5")
+
+[node name="Marechal" type="Sprite3D" parent="Clientes" unique_id=152827079]
+transform = Transform3D(0.19465475, 0, 0.4983318, 0, 0.535, 0, -0.4983318, 0, 0.19465475, 1.5080485, 1.3297333, 1.1024437)
+visible = false
+billboard = 2
+alpha_cut = 1
+texture = ExtResource("9_sh3s5")
+
+[node name="Hermeto" type="Sprite3D" parent="Clientes" unique_id=157383914]
+transform = Transform3D(0.21648519, 0, 0.5542194, 0, 0.595, 0, -0.5542194, 0, 0.21648519, 1.4889193, 1.3321215, 0.89421034)
+visible = false
+billboard = 2
+alpha_cut = 1
+texture = ExtResource("10_55pe8")
+
+[node name="Dandara" type="Sprite3D" parent="Clientes" unique_id=2106852488]
+transform = Transform3D(0.10187538, 0, 0.26080915, 0, 0.28, 0, -0.26080915, 0, 0.10187538, 1.5559368, 1.1133257, 0.89421034)
+visible = false
+billboard = 2
+alpha_cut = 1
+texture = ExtResource("11_7n5et")
 
 [connection signal="body_entered" from="Area3D" to="CharacterBody3D" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="CharacterBody3D" method="_on_area_3d_body_exited"]

@@ -1,16 +1,18 @@
 extends Control
+signal clienteGerado(nomeCliente)
 
-@onready var infoDia = $InfoDia
-@onready var textoCliente = $TextoCliente
-@onready var entrada = $Entrada
-@onready var buttonConfirma = $ButtonConfirma
-@onready var feedback = $Feedback
+@onready var infoDia = $HBoxContainer/Estoque/MarginContainer/VBoxContainer/InfoDia
+@onready var textoCliente = $HBoxContainer/Central/MarginContainer/TextoCliente
+@onready var entrada = $HBoxContainer/Math/MarginContainer/VBoxContainer/Entrada
+@onready var buttonConfirma = $HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonConfirma
+@onready var feedback = $HBoxContainer/Math/MarginContainer/VBoxContainer/Feedback
 @onready var buttonProxDia = $ButtonProxDia
-@onready var confirma = $ButtonConfirma/Confirma
-@onready var proximoDia = $"ButtonProxDia/Próximo dia"
-@onready var ajuda = $ButtonAjuda/Ajuda
-@onready var curiosidade = $Curiosidade
-@onready var sair = $ButtonSair/Sair
+@onready var confirma = $HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonConfirma/Confirma
+@onready var proximoDia = $"HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonProxDia/Próximo dia"
+@onready var ajuda = $HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonAjuda/Ajuda
+@onready var curiosidade = $HBoxContainer/Math/MarginContainer/VBoxContainer/Curiosidade
+@onready var sair = $HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonSair/Sair
+
 
 var dica: String = ""
 var precoPorcao: float = 5.0
@@ -77,16 +79,15 @@ var frases_historicas = {
 func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	atualizar_interface()
-	gerar_novo_cliente()
-	
+	call_deferred("gerar_novo_cliente")
 	#entrada.grab_focus()
 
 func atualizar_interface():
-	sair.text = "sair"
+	sair.text = "Sair"
 	ajuda.text = "Ajuda"
 	proximoDia.text = "Proximo dia"
 	confirma.text = "Confirmar"
-	infoDia.text = "Dia: %d | Dinheiro: R$ %.2f | Estoque de sururu %d | Preço da porção: R$ %.2f" %[
+	infoDia.text = "Dia: %d |\nDinheiro: R$ %.2f |\nEstoque de sururu %d |\nPreço da porção: R$ %.2f" %[
 		Global.diaAtual, Global.dinheiro, Global.sururuEstoque, precoPorcao
 	]
 	
@@ -118,6 +119,8 @@ func gerar_novo_cliente():
 	
 	var personagens =frases_historicas.keys()
 	var clienteEscolhido = personagens.pick_random()
+	
+	clienteGerado.emit(clienteEscolhido)
 	
 	var frase = frases_historicas[clienteEscolhido].pick_random()
 	
@@ -168,6 +171,7 @@ func _on_button_ajuda_pressed() -> void:
 
 func _on_button_sair_pressed() -> void:
 	Global.venda = false
+	get_node("/root/Mundo/Clientes").visible = false
 	get_parent().visible = false 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_node("/root/Mundo/HUD/Legenda").visible = true

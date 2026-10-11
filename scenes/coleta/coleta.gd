@@ -8,7 +8,7 @@ extends Node3D
 @onready var pasta_coletaveis = $Coletaveis
 
 func _ready() -> void:
-	Input.mouse_mode = INPUT.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	# O randomize() garante que as posições sejam sempre diferentes 
 	randomize() 
 	espalhar_sururus()

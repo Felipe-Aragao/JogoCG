@@ -2,14 +2,33 @@ extends Node3D
 
 @onready var telaVenda = $CanvasLayer
 @onready var legenda = $HUD/Legenda
+@onready var clientes = $Clientes
 var jogadorPertoTenda: bool = false
+
+
+var mapa_nomes = {
+	"Zumbi dos Palmares": "Zumbi",
+	"Nise da Silveira": "Nise",
+	"Graciliano Ramos": "Graciliano",
+	"Marechal Deodoro da Fonseca": "Marechal",
+	"Hermeto Pascoal": "Hermeto",
+	"Dandara dos Palmares": "Dandara"
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	telaVenda.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	telaVenda.get_child(0).clienteGerado.connect(_mostrar_cliente)
+	clientes.visible = false
+	call_deferred("abrir_loja")
 
-
+func _mostrar_cliente(nomeCompleto: String) -> void:
+	for cliente in clientes.get_children():
+		cliente.visible = false
+	var nomeCliente = mapa_nomes.get(nomeCompleto, "") 
+	if nomeCliente != "" and clientes.has_node(nomeCliente):
+		clientes.get_node(nomeCliente).visible = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -32,6 +51,7 @@ func _input(event: InputEvent) -> void:
 func abrir_loja():
 	Global.venda = true
 	telaVenda.visible = true
+	clientes.visible = true
 	legenda.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	telaVenda.get_child(0).entrada.grab_focus()
