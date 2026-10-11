@@ -1,16 +1,13 @@
 [gd_scene format=3 uid="uid://7pb1odyea3dd"]
 
 [ext_resource type="Script" uid="uid://eqb8gqof4g37" path="res://scenes/barco.gd" id="1_3hvaf"]
-[ext_resource type="PackedScene" uid="uid://rh36rvro4qiv" path="res://models/boat/boat-fishing-small.glb" id="1_p7uf6"]
+[ext_resource type="PackedScene" uid="uid://bc0p8r24ce58j" path="res://models/boat/barco2.glb" id="2_3hvaf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6js50"]
 size = Vector3(1.8000001, 1.8000001, 3.9)
 
 [node name="Barco" type="CharacterBody3D" unique_id=1429319015]
 script = ExtResource("1_3hvaf")
-
-[node name="BoatSkin" parent="." unique_id=1851099973 instance=ExtResource("1_p7uf6")]
-unique_name_in_owner = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=514473441]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9802322e-08, 1, 5.9604645e-08)
@@ -23,3 +20,9 @@ transform = Transform3D(-1, 4.8889895e-16, 8.7422784e-08, 3.7650707e-08, 0.90250
 [node name="Camera3D" type="Camera3D" parent="Pivot" unique_id=1946803466]
 unique_name_in_owner = true
 transform = Transform3D(1, 6.67782e-08, -4.9375807e-08, -6.830582e-08, 0.99950016, -0.03161502, 4.7239936e-08, 0.03161502, 0.99950016, -2.0287392e-07, 3.5762787e-07, 8.2)
+
+[node name="BoatSkin" type="Node3D" parent="." unique_id=2080078046]
+unique_name_in_owner = true
+
+[node name="BarcoModelo" parent="BoatSkin" unique_id=117858611 instance=ExtResource("2_3hvaf")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)

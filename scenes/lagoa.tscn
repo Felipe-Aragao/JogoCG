@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://nmehnwcbbsyp"]
+
+[ext_resource type="PackedScene" uid="uid://cl3auwqn1t80" path="res://models/lagoa/lagoa5.glb" id="1_up5sf"]
+
+[node name="Node3D" type="Node3D" unique_id=849494660]
+
+[node name="lagoa5" parent="." unique_id=831279809 instance=ExtResource("1_up5sf")]
