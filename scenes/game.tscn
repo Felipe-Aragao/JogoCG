@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bss2gb5i228d4"]
 
 [ext_resource type="PackedScene" uid="uid://7pb1odyea3dd" path="res://scenes/barco.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://cam656itesfvg" path="res://scenes/spawner_pesca.gd" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://p7l2g78mdmmx" path="res://scenes/Terreno.tscn" id="3_lnu2h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8cj0n"]
@@ -15,6 +16,9 @@ background_mode = 2
 sky = SubResource("Sky_uwrxv")
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_r3eg6"]
+size = Vector3(477.781, 21.076, 884.984)
+
 [node name="Game" type="Node3D" unique_id=1696587631]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1215570091]
@@ -25,7 +29,23 @@ transform = Transform3D(-0.5566705, -0.66135746, -0.502717, -0.82453346, 0.36606
 shadow_enabled = true
 
 [node name="Barco" parent="." unique_id=1429319015 instance=ExtResource("1_uwrxv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24232674, -0.20000076, 0.22156715)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24232674, -0.3648634, 0.22156715)
 
 [node name="Terreno" parent="." unique_id=778900227 instance=ExtResource("3_lnu2h")]
-transform = Transform3D(32.245, 0, 0, 0, 32.245, 0, 0, 0, 32.245, 4.29348, -34.742317, 5.1073837)
+transform = Transform3D(32.245, 0, 0, 0, 32.245, 0, 0, 0, 32.245, 4.5379143, -34.379353, 5.559067)
+
+[node name="SpawnerPesca" type="Area3D" parent="." unique_id=1297843848]
+script = ExtResource("3_lbhrr")
+
+[node name="CaixaSpawn" type="CollisionShape3D" parent="SpawnerPesca" unique_id=495261833]
+unique_name_in_owner = true
+transform = Transform3D(0.9999939, 0, -0.0034906515, 0, 1, 0, 0.0034906515, 0, 0.9999939, 62.847076, -0.23069763, 59.57738)
+shape = SubResource("BoxShape3D_r3eg6")
+debug_color = Color(0.9312931, 0.10654638, 0.3748444, 1)
+
+[node name="RayCast3D" type="RayCast3D" parent="SpawnerPesca" unique_id=458073152]
+unique_name_in_owner = true
+transform = Transform3D(0.9999939, 0, -0.0034906515, 0, 1, 0, 0.0034906515, 0, 0.9999939, 62.847076, 1, 59.57738)
+enabled = false
+target_position = Vector3(0, -100, 0)

@@ -16,11 +16,11 @@ shape = SubResource("CapsuleShape3D_yqjtg")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=1009986259]
 unique_name_in_owner = true
-transform = Transform3D(-1, 4.8889895e-16, 8.7422784e-08, 3.7650707e-08, 0.90250754, 0.43067396, -7.8899724e-08, 0.43067396, -0.90250754, 0, 1.5, 0)
+transform = Transform3D(-1, 8.365379e-15, 8.742278e-08, 3.304894e-08, 0.925791, 0.37803572, -8.093522e-08, 0.37803572, -0.925791, 0, 1.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot" unique_id=1946803466]
 unique_name_in_owner = true
-transform = Transform3D(1, 6.67782e-08, -4.9375807e-08, -6.830582e-08, 0.99950016, -0.03161502, 4.7239936e-08, 0.03161502, 0.99950016, -2.0287392e-07, 3.5762787e-07, 8.2)
+transform = Transform3D(1, 6.67782e-08, -4.9375807e-08, -6.830582e-08, 0.99950016, -0.03161502, 4.7239936e-08, 0.03161502, 0.99950016, 0, 0, 15.39)
 
 [node name="BoatSkin" type="Node3D" parent="." unique_id=2080078046]
 unique_name_in_owner = true

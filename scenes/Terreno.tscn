@@ -17,11 +17,13 @@ size = Vector3(0.018437501, 0.021240234, 0.011917114)
 transform = Transform3D(5.360658, 0, 0, 0, 3, 0, 0, 0, 5.360658, -0.002960205, 1.0407133, 0.007968903)
 
 [node name="CollisionShape3D" parent="Terreno2/Terreno/StaticBody3D" parent_id_path=PackedInt32Array(1902910490, 1108467919) index="0" unique_id=206652647]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_y7y4h")
 debug_color = Color(0.9372549, 0.6, 0.69803923, 0.5803922)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Terreno2/Terreno/StaticBody3D" parent_id_path=PackedInt32Array(1902910490, 1108467919) index="1" unique_id=586613909]
 transform = Transform3D(0.99977994, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99977994, 0.027167222, 0.023239195, 1.7879037)
+visible = false
 shape = SubResource("BoxShape3D_spd14")
 debug_color = Color(0.6627451, 0.6039216, 0, 1)
 
