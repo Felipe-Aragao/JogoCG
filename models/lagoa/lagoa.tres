@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://c5qk404gkur8l"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://6eu4ouhwpamj"]
 
 [sub_resource type="Shader" id="Shader_y5ocw"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.7.2.stable's StandardMaterial3D.
@@ -121,7 +121,7 @@ as_normal_map = true
 [resource]
 render_priority = 0
 shader = SubResource("Shader_y5ocw")
-shader_parameter/albedo = Color(0.31764707, 0.40784314, 0.5019608, 0.79607844)
+shader_parameter/albedo = Color(0.31764707, 0.40784314, 0.5019608, 1)
 shader_parameter/albedo_texture_size = Vector2i(1, 1)
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 0.0

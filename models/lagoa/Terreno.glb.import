@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cl3auwqn1t80"
-path="res://.godot/imported/lagoa5.glb-ca6bf382c88ef49c05a13b2045008957.scn"
+uid="uid://daotm2fdfgexd"
+path="res://.godot/imported/Terreno.glb-5cdd3596009aba888918498d09cad655.scn"
 
 [deps]
 
-source_file="res://models/lagoa/lagoa5.glb"
-dest_files=["res://.godot/imported/lagoa5.glb-ca6bf382c88ef49c05a13b2045008957.scn"]
+source_file="res://models/lagoa/Terreno.glb"
+dest_files=["res://.godot/imported/Terreno.glb-5cdd3596009aba888918498d09cad655.scn"]
 
 [params]
 
@@ -41,10 +41,25 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"Material.002": {
+"Agua": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://models/lagoa/lagoa.tres",
-"use_external/path": "uid://c5qk404gkur8l"
+"use_external/path": "uid://6eu4ouhwpamj"
+},
+"Terra": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/lagoa/Terreno.tres",
+"use_external/path": "uid://btxau4rvui51u"
+}
+},
+"nodes": {
+"PATH:Agua": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Terreno": {
+"generate/physics": true,
+"physics/shape_type": 2
 }
 }
 }

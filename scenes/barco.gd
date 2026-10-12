@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export_range(0.0, 1.0) var mouse_sensitivity := 0.1
 
 @export_group("Movement")
-@export var move_speed := 8.0
+@export var move_speed := 28.0
 @export var reverse_speed := 3.5
 @export var acceleration := 20.0
 @export var rotation_speed := 2.0
@@ -35,6 +35,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	# Gravidade
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
 	# Movimento Camera
 	_camera_pivot.rotation.y -= _camera_input_direction.x * delta
 	
@@ -43,8 +47,8 @@ func _physics_process(delta: float) -> void:
 	var raw_input := Input.get_vector("move_left",
 	 "move_right", "move_up", "move_down")
 	
-	# Giro dependente da velocidade (efeito leme)
-	var current_speed: float = velocity.length()
+	# Giro dependente da velocidade horizontal (efeito leme)
+	var current_speed: float = Vector2(velocity.x, velocity.z).length()
 	var speed_factor: float = lerpf(min_turn_ratio, 1.0, clampf(current_speed / move_speed, 0.0, 1.0))
 	rotate_y(-raw_input.x * rotation_speed * speed_factor * delta)
 	
@@ -55,7 +59,9 @@ func _physics_process(delta: float) -> void:
 	move_direction = move_direction.normalized()
 	
 	var target_speed: float = move_speed if raw_input.y <= 0.0 else reverse_speed
-	velocity = velocity.move_toward(move_direction * target_speed, acceleration * delta)
+	var target_velocity := move_direction * target_speed
+	velocity.x = move_toward(velocity.x, target_velocity.x, acceleration * delta)
+	velocity.z = move_toward(velocity.z, target_velocity.z, acceleration * delta)
 	move_and_slide()
 	
 	

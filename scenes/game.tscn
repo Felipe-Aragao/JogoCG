@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bss2gb5i228d4"]
 
 [ext_resource type="PackedScene" uid="uid://7pb1odyea3dd" path="res://scenes/barco.tscn" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://nmehnwcbbsyp" path="res://scenes/lagoa.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://p7l2g78mdmmx" path="res://scenes/Terreno.tscn" id="3_lnu2h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8cj0n"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -27,5 +27,5 @@ shadow_enabled = true
 [node name="Barco" parent="." unique_id=1429319015 instance=ExtResource("1_uwrxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24232674, -0.20000076, 0.22156715)
 
-[node name="Node3D" parent="." unique_id=849494660 instance=ExtResource("2_yqjtg")]
-transform = Transform3D(16.21, 0, 0, 0, -7.085616e-07, 16.21, 0, -16.21, -7.085616e-07, 0, 0, 0)
+[node name="Terreno" parent="." unique_id=778900227 instance=ExtResource("3_lnu2h")]
+transform = Transform3D(32.245, 0, 0, 0, 32.245, 0, 0, 0, 32.245, 4.29348, -34.742317, 5.1073837)

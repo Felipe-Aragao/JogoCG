@@ -1,17 +1,18 @@
 [gd_scene format=3 uid="uid://7pb1odyea3dd"]
 
-[ext_resource type="Script" uid="uid://eqb8gqof4g37" path="res://scenes/barco.gd" id="1_3hvaf"]
+[ext_resource type="Script" uid="uid://bn1haw03bfnyq" path="res://scenes/barco.gd" id="1_3hvaf"]
 [ext_resource type="PackedScene" uid="uid://bc0p8r24ce58j" path="res://models/boat/barco2.glb" id="2_3hvaf"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6js50"]
-size = Vector3(1.8000001, 1.8000001, 3.9)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yqjtg"]
+radius = 1.1943359
+height = 7.265625
 
 [node name="Barco" type="CharacterBody3D" unique_id=1429319015]
 script = ExtResource("1_3hvaf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=514473441]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9802322e-08, 1, 5.9604645e-08)
-shape = SubResource("BoxShape3D_6js50")
+transform = Transform3D(1, 0, 0, 0, -0.014699973, -0.9998921, 0, 0.9998921, -0.014699973, 0.207189, 0.6861167, -0.24565172)
+shape = SubResource("CapsuleShape3D_yqjtg")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=1009986259]
 unique_name_in_owner = true
