@@ -55,4 +55,4 @@ func abrir_loja():
 	legenda.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	telaVenda.get_child(0).entrada.grab_focus()
-	
+	telaVenda.get_child(0).fade_in_music()

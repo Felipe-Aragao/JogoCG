@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://bs0vku7xc8krn" path="res://scenes/tenda/jogad.tscn" id="3_kdk4d"]
 [ext_resource type="PackedScene" uid="uid://dr6vutmikovqr" path="res://scenes/tenda/tenda_lagoa.tscn" id="4_giaku"]
 [ext_resource type="FontFile" uid="uid://0lxqlx4d0550" path="res://fontes/SedgwickAveDisplay-Regular.ttf" id="5_cs5nd"]
-[ext_resource type="Texture2D" uid="uid://df33mffhcxckv" path="res://personagens/palmares.png" id="6_wajt0"]
-[ext_resource type="Texture2D" uid="uid://66t8ubdtyv80" path="res://personagens/graciliano.png" id="7_kdk4d"]
-[ext_resource type="Texture2D" uid="uid://clsb0ddawujlh" path="res://personagens/nise.png" id="8_sh3s5"]
-[ext_resource type="Texture2D" uid="uid://c43gbyqwt4ljl" path="res://personagens/deodoro.png" id="9_sh3s5"]
-[ext_resource type="Texture2D" uid="uid://kjoejytux4mc" path="res://personagens/hermeto.png" id="10_55pe8"]
-[ext_resource type="Texture2D" uid="uid://xr4o68dpw3ci" path="res://personagens/Dandara.png" id="11_7n5et"]
+[ext_resource type="PackedScene" uid="uid://jgghysrbwq3e" path="res://models/personagens/Dandara.glb" id="6_sh3s5"]
+[ext_resource type="PackedScene" uid="uid://cke88pw5ecg1l" path="res://models/personagens/Zumbie.glb" id="7_55pe8"]
+[ext_resource type="PackedScene" uid="uid://ccr76u8valj2o" path="res://models/personagens/Nizie.glb" id="8_7n5et"]
+[ext_resource type="PackedScene" uid="uid://cpy6iwdh37yyw" path="res://models/personagens/Marechal.glb" id="10_t6nhy"]
+[ext_resource type="PackedScene" uid="uid://c7n4kni56dyw8" path="res://models/personagens/Graciliana.glb" id="11_55pe8"]
+[ext_resource type="PackedScene" uid="uid://cemb8af5qoy47" path="res://models/personagens/Hermete.glb" id="11_sh3s5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_05uab"]
 
@@ -92,46 +92,29 @@ vertical_alignment = 1
 [node name="Clientes" type="Node3D" parent="." unique_id=2044320224]
 transform = Transform3D(0.415, 0, 0, 0, 0.415, 0, 0, 0, 0.415, 1.2716147, 0.8, -2.217913)
 
-[node name="Zumbi" type="Sprite3D" parent="Clientes" unique_id=1925465982]
-transform = Transform3D(0.5202921, 0, 1.3319895, 0, 1.43, 0, -1.3319895, 0, 0.5202921, 1.0668483, 0.58065426, 1.3375401)
+[node name="Dandara" parent="Clientes" unique_id=765655431 instance=ExtResource("6_sh3s5")]
+transform = Transform3D(-0.34202012, 0, 0.9396926, 0, 1, 0, -0.9396926, 0, -0.34202012, 0.80586624, 1.445, 1.0209999)
 visible = false
-billboard = 2
-alpha_cut = 1
-texture = ExtResource("6_wajt0")
 
-[node name="Graciliano" type="Sprite3D" parent="Clientes" unique_id=409328780]
-transform = Transform3D(0.3329142, 0, 0.85228705, 0, 0.915, 0, -0.85228705, 0, 0.3329142, 1.2656918, 1.1508647, 1.5400035)
+[node name="Zumbi" parent="Clientes" unique_id=1221203272 instance=ExtResource("7_55pe8")]
+transform = Transform3D(-0.34202012, 0, 0.9396926, 0, 1, 0, -0.9396926, 0, -0.34202012, 0.80586624, 1.445, 1.0209999)
 visible = false
-billboard = 2
-alpha_cut = 1
-texture = ExtResource("7_kdk4d")
 
-[node name="Nise" type="Sprite3D" parent="Clientes" unique_id=1094196048]
-transform = Transform3D(0.07094892, 0, 0.18163493, 0, 0.195, 0, -0.18163493, 0, 0.07094892, 1.2656918, 1.3822118, 0.6783128)
-billboard = 2
-alpha_cut = 1
-texture = ExtResource("8_sh3s5")
-
-[node name="Marechal" type="Sprite3D" parent="Clientes" unique_id=152827079]
-transform = Transform3D(0.19465475, 0, 0.4983318, 0, 0.535, 0, -0.4983318, 0, 0.19465475, 1.5080485, 1.3297333, 1.1024437)
+[node name="Nise" parent="Clientes" unique_id=415933148 instance=ExtResource("8_7n5et")]
+transform = Transform3D(-0.34202012, 0, 0.9396926, 0, 1, 0, -0.9396926, 0, -0.34202012, 0.80586624, 1.445, 1.0209999)
 visible = false
-billboard = 2
-alpha_cut = 1
-texture = ExtResource("9_sh3s5")
 
-[node name="Hermeto" type="Sprite3D" parent="Clientes" unique_id=157383914]
-transform = Transform3D(0.21648519, 0, 0.5542194, 0, 0.595, 0, -0.5542194, 0, 0.21648519, 1.4889193, 1.3321215, 0.89421034)
+[node name="Marechal" parent="Clientes" unique_id=310473922 instance=ExtResource("10_t6nhy")]
+transform = Transform3D(-0.34202012, 0, 0.9396926, 0, 1, 0, -0.9396926, 0, -0.34202012, 0.80586624, 1.445, 1.0209999)
 visible = false
-billboard = 2
-alpha_cut = 1
-texture = ExtResource("10_55pe8")
 
-[node name="Dandara" type="Sprite3D" parent="Clientes" unique_id=2106852488]
-transform = Transform3D(0.10187538, 0, 0.26080915, 0, 0.28, 0, -0.26080915, 0, 0.10187538, 1.5559368, 1.1133257, 0.89421034)
+[node name="Hermeto" parent="Clientes" unique_id=467924325 instance=ExtResource("11_sh3s5")]
+transform = Transform3D(-0.34202012, 0, 0.93969256, 0, 1, 0, -0.93969256, 0, -0.34202012, 0.3825338, 1.445, 1.0209999)
 visible = false
-billboard = 2
-alpha_cut = 1
-texture = ExtResource("11_7n5et")
+
+[node name="Graciliano" parent="Clientes" unique_id=1259044169 instance=ExtResource("11_55pe8")]
+transform = Transform3D(-0.3420201, 0, 0.93969256, 0, 1, 0, -0.93969256, 0, -0.3420201, 0.3825338, 1.445, 1.0209999)
+visible = false
 
 [connection signal="body_entered" from="Area3D" to="CharacterBody3D" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="CharacterBody3D" method="_on_area_3d_body_exited"]

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dje3oiv1jdqng" path="res://scenes/vendas.gd" id="1_xonyo"]
 [ext_resource type="FontFile" uid="uid://cs5nbegvdvae6" path="res://fontes/NotoSerif-Italic-VariableFont_wdth,wght.ttf" id="2_3tmwe"]
+[ext_resource type="AudioStream" uid="uid://bax52fnh4m0og" path="res://sounds/text_blip.wav" id="3_44cdj"]
+[ext_resource type="AudioStream" uid="uid://phxaox4bblj6" path="res://sounds/soundtrack.wav" id="4_5dfyg"]
 
 [node name="CenaVendas" type="Control" unique_id=1240857978]
 layout_mode = 3
@@ -113,6 +115,39 @@ theme_override_fonts/font = ExtResource("2_3tmwe")
 theme_override_font_sizes/font_size = 18
 placeholder_text = "Digite o valor aqui"
 
+[node name="ButtonAjuda" type="Button" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=245968668]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Ajuda" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonAjuda" unique_id=1297333080]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -11.5
+offset_right = 125.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_3tmwe")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
+[node name="Feedback" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=1791606917]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_3tmwe")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
 [node name="ButtonConfirma" type="Button" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=507574054]
 layout_mode = 2
 size_flags_vertical = 3
@@ -138,7 +173,7 @@ theme_override_fonts/font = ExtResource("2_3tmwe")
 theme_override_font_sizes/font_size = 20
 autowrap_mode = 3
 
-[node name="Feedback" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=1791606917]
+[node name="Curiosidade" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=1117584976]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -172,39 +207,6 @@ theme_override_fonts/font = ExtResource("2_3tmwe")
 theme_override_font_sizes/font_size = 20
 autowrap_mode = 3
 
-[node name="ButtonAjuda" type="Button" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=245968668]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Ajuda" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonAjuda" unique_id=1297333080]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -11.5
-offset_right = 125.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_3tmwe")
-theme_override_font_sizes/font_size = 20
-autowrap_mode = 3
-
-[node name="Curiosidade" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=1117584976]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("2_3tmwe")
-theme_override_font_sizes/font_size = 20
-autowrap_mode = 3
-
 [node name="ButtonSair" type="Button" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=1081099940]
 layout_mode = 2
 size_flags_vertical = 3
@@ -228,7 +230,17 @@ theme_override_fonts/font = ExtResource("2_3tmwe")
 theme_override_font_sizes/font_size = 20
 autowrap_mode = 3
 
+[node name="TimerTexto" type="Timer" parent="." unique_id=1837341213]
+
+[node name="SomTexto" type="AudioStreamPlayer" parent="." unique_id=908643847]
+stream = ExtResource("3_44cdj")
+volume_db = -10.0
+
+[node name="MusicaVenda" type="AudioStreamPlayer" parent="." unique_id=2026413360]
+stream = ExtResource("4_5dfyg")
+volume_db = -0.27
+
+[connection signal="pressed" from="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonAjuda" to="." method="_on_button_ajuda_pressed"]
 [connection signal="pressed" from="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonConfirma" to="." method="_on_button_confirma_pressed"]
 [connection signal="pressed" from="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonProxDia" to="." method="_on_button_prox_dia_pressed"]
-[connection signal="pressed" from="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonAjuda" to="." method="_on_button_ajuda_pressed"]
 [connection signal="pressed" from="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonSair" to="." method="_on_button_sair_pressed"]

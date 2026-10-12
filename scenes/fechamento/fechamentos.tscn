@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://j41ab45y1n3i"]
+
+[ext_resource type="Script" uid="uid://br476kk3hmoiu" path="res://scenes/fechamento/fechamentos.gd" id="1_4ullw"]
+
+[node name="Control" type="Control" unique_id=1980164859]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_4ullw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1072052745]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9997947, 1.0002725)
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1240683599]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -34.5
+offset_right = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1322736022]
+layout_mode = 2
+
+[node name="Saldos" type="Label" parent="MarginContainer/VBoxContainer" unique_id=344960731]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Custos" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1217048770]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Aluguel" type="LineEdit" parent="MarginContainer/VBoxContainer" unique_id=312048731]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Faturamento" type="LineEdit" parent="MarginContainer/VBoxContainer" unique_id=303409497]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Lucro" type="LineEdit" parent="MarginContainer/VBoxContainer" unique_id=497691399]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonAvançar" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1525075133]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="confirma" type="Label" parent="MarginContainer/VBoxContainer/ButtonAvançar" unique_id=1722760403]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Feedback" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1047623747]
+layout_mode = 2
+size_flags_vertical = 6
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonAvançar" to="." method="_on_button_avançar_pressed"]

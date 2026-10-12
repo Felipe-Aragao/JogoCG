@@ -12,67 +12,67 @@ signal clienteGerado(nomeCliente)
 @onready var ajuda = $HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonAjuda/Ajuda
 @onready var curiosidade = $HBoxContainer/Math/MarginContainer/VBoxContainer/Curiosidade
 @onready var sair = $HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonSair/Sair
-
-
+@onready var timerTexto = $TimerTexto
+@onready var somTexto = $SomTexto
+@onready var musicaVenda = $MusicaVenda
 var dica: String = ""
 var precoPorcao: float = 5.0
 var quantidadePedida: int = 0
 var respostaCorreta: float = 0.0
 var totalPorcoes: int = 0
-var unidades_medida = [
-	{
-		"singular": "balaio", 
-		"plural": "balaios", 
-		"fator": 20, 
-		"curiosidade" : "O balaio é um cesto feito de palha trançada. Um balaio grande bem cheio pode carregar até 15 kg de sururu na casca!",
-		"dica": "DICA: Um balaio cheio rende 5 quilos. Cada quilo rende 4 porções"
+var catalogo = {
+	"sururu": {
+		"preco": 5.0, 
+		"gramas": 250, # 4 unidades = 1 kg
+		"curiosidade": "Para conseguir 1 quilo de sururu limpo, as marisqueiras precisam de 8 a 10 quilos na casca!"
 	},
-	{
-		"singular": "quilo", 
-		"plural": "quilos", 
-		"fator": 4, 
-		"curiosidade": "Sabia que para conseguir 1 quilo de sururu limpo (despinicado), as marisqueiras precisam pescar cerca de 8 a 10 quilos de sururu na casca?",
-		"dica": "1 quilo de sururu limpo (despinicado) rende exatamente 4 porções bem servidas."
+	"carapeba": {
+		"preco": 15.0, 
+		"gramas": 500, # 2 unidades = 1 kg
+		"curiosidade": "A carapeba é um dos peixes mais valorizados da culinária alagoana, servida geralmente frita."
 	},
-	{
-		"singular": "porção", 
-		"plural": "porções", 
-		"fator": 1, 
-		"curiosidade" : "Uma porção de caldo de sururu costuma levar cerca de 250 gramas de molusco, o ideal para um prato bem servido.",
-		"dica": "O pedido já está em porções! É só multiplicar a quantidade pedida pelo preço da porção."
+	"tainha": {
+		"preco": 12.0, 
+		"gramas": 1000, # 1 unidade = 1 kg
+		"curiosidade": "A tainha é famosa pelas ovas e é um peixe clássico nas épocas frias da lagoa."
 	},
-	{
-		"singular": "bacia", 
-		"plural": "bacias", 
-		"fator": 10, 
-		"curiosidade" : "As bacias de alumínio são muito usadas para lavar a lama do sururu na beira da lagoa. Uma bacia média comporta até 5 quilos!",
-		"dica":"Uma bacia média limpa equivale a 2,5 quilos. Sabe-se que 1 quilo são 4 porções."
+	"tilápia": {
+		"preco": 10.0, 
+		"gramas": 500, # 2 unidades = 1 kg
+		"curiosidade": "A tilápia adaptou-se incrivelmente bem às águas do Brasil e é fonte de rendimento forte."
+	},
+	"bagre": {
+		"preco": 8.0, 
+		"gramas": 200, # 5 unidades = 1 kg
+		"curiosidade": "O bagre tem 'bigodes' que funcionam como sensores para caçar na lama do fundo da lagoa!"
 	}
-]
+}
+
+var produtoAtual: String = ""
 var frases_historicas = {
 	"Zumbi dos Palmares": [
-		"Preciso de %d %s de sururu para alimentar o quilombo. Quanto lhe devo?",
-		"A resistência precisa de força! Separe %d %s. Qual o total?"
+		"Preciso de %d %s de %s para alimentar o quilombo. Quanto lhe devo?",
+        "A resistência precisa de força! Separe %d %s de %s. Qual o total?"
 	],
 	"Nise da Silveira": [
-		"A verdadeira cura passa pelo afeto e por um bom caldo. Vou querer %d %s. Quanto fica a conta?",
-		"Meus gatos adorariam o cheiro, mas é para os pacientes! Levo %d %s. Qual o valor?"
+		"A verdadeira cura passa pelo afeto e por um bom prato. Vou querer %d %s de %s. Quanto fica a conta?",
+        "Meus gatos adorariam o cheiro, mas é para os pacientes! Levo %d %s de %s. Qual o valor?"
 	],
 	"Graciliano Ramos": [
-		"Sem rodeios. Embrulhe %d %s. Diga logo o preço final.",
-		"A seca é dura, mas a lagoa é farta. Quero %d %s.Quanto lhe devo?"
+		"Sem rodeios. Embrulhe %d %s de %s. Diga logo o preço final.",
+        "A seca é dura, mas a lagoa é farta. Quero %d %s de %s. Quanto lhe devo?"
 	],
 	"Marechal Deodoro da Fonseca": [
-		"Proclamo que levarei %d %s deste belo sururu! Apresente-me a conta, cidadão.",
-		"Pela república e pela boa culinária alagoana! Encomendo %d %s. Qual o valor?"
+		"Proclamo que levarei %d %s deste belo %s! Apresente-me a conta, cidadão.",
+        "Pela república e pela boa culinária alagoana! Encomendo %d %s de %s. Qual o valor?"
 	],
 	"Hermeto Pascoal": [
-		"Até as conchas fazem música! Bota %d %s pra mim. Que som dá esse total?",
-		"Que sinfonia de sabores! Vou levar %d %s. Qual o resultado da partitura?"
+		"Até a natureza faz música! Bota %d %s de %s pra mim. Que som dá esse total?",
+        "Que sinfonia de sabores! Vou levar %d %s de %s. Qual o resultado da partitura?"
 	],
 	"Dandara dos Palmares": [
-		"Nenhuma guerreira luta com fome. Separe %d %s de sururu. Qual o valor para o nosso povo?",
-		"A liberdade tem gosto de força e união. Levo %d %s. Qual é a conta?"
+		"Nenhuma guerreira luta com fome. Separe %d %s de %s. Qual o valor para o nosso povo?",
+        "A liberdade tem gosto de força e união. Levo %d %s de %s. Qual é a conta?"
 	]
 }
 # Called when the node enters the scene tree for the first time.
@@ -80,6 +80,8 @@ func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	atualizar_interface()
 	call_deferred("gerar_novo_cliente")
+	timerTexto.timeout.connect(_on_timer_texto_timeout)
+	fade_in_music()
 	#entrada.grab_focus()
 
 func atualizar_interface():
@@ -87,50 +89,78 @@ func atualizar_interface():
 	ajuda.text = "Ajuda"
 	proximoDia.text = "Proximo dia"
 	confirma.text = "Confirmar"
-	infoDia.text = "Dia: %d |\nDinheiro: R$ %.2f |\nEstoque de sururu %d |\nPreço da porção: R$ %.2f" %[
-		Global.diaAtual, Global.dinheiro, Global.sururuEstoque, precoPorcao
+	
+	infoDia.text = "Dia: %d |\nDinheiro: R$ %.2f |\nEstoque (Unidade):\nSururu: %d\nCarapeba: %d\nTainha :%d
+	Tilapia: %d\nBagre: %d|\nPreço %s:R$%.2f" % [
+		Global.diaAtual, Global.dinheiro, Global.sururuEstoque,Global.carapebaEstoque,
+		Global.tainhaEstoque,Global.tilapiaEstoque,Global.bagreEstoque, produtoAtual, precoPorcao
 	]
 	
 func gerar_novo_cliente(): 
 	entrada.text = ""
 	feedback.text = ""
-	if Global.sururuEstoque <= 0:
-		textoCliente.text = "O estoque de sururu acabou! Avance para o próximo dia."
-		entrada.visible = false
-		buttonConfirma.visible = false
-		return
 	entrada.visible = true
 	buttonConfirma.visible = true
+	var produtosDisponiveis = []
+	if (Global.sururuEstoque * catalogo["sururu"]["gramas"]) >= 1000: produtosDisponiveis.append("sururu")
+	if (Global.carapebaEstoque * catalogo["carapeba"]["gramas"]) >= 1000: produtosDisponiveis.append("carapeba")
+	if (Global.tainhaEstoque * catalogo["tainha"]["gramas"]) >= 1000: produtosDisponiveis.append("tainha")
+	if (Global.tilapiaEstoque * catalogo["tilápia"]["gramas"]) >= 1000: produtosDisponiveis.append("tilápia")
+	if (Global.bagreEstoque * catalogo["bagre"]["gramas"]) >= 1000: produtosDisponiveis.append("bagre")
 	
-	var tipoMedida = unidades_medida.pick_random()
-	var multiplicador = tipoMedida["fator"]
-	curiosidade.text = "CURIOSIDADE: %s" %tipoMedida["curiosidade"]
-	var maxUnidade = Global.sururuEstoque / multiplicador
+	if produtosDisponiveis.size() == 0:
+		textoCliente.text = "Seu estoque de pescados está baixo e a clientela se mandou! Avance para encerrar as vendas."
+		entrada.visible = false
+		buttonConfirma.visible = false
+		produtoAtual = "sururu" 
+		atualizar_interface()
+		clienteGerado.emit("")
+		return
 	
-	if maxUnidade < 1 :
-		tipoMedida = unidades_medida[2]
-		multiplicador = 1
-		maxUnidade = Global.sururuEstoque
-	var maxPedido = min(4, maxUnidade)
-	quantidadePedida = randi_range(1,maxPedido)
+	produtoAtual = produtosDisponiveis.pick_random()
+	var infoProduto = catalogo[produtoAtual]
 	
-	totalPorcoes = quantidadePedida * multiplicador
-	respostaCorreta = totalPorcoes * precoPorcao
+	precoPorcao = infoProduto["preco"]
+	var gramasUnidade = infoProduto["gramas"]
 	
-	var personagens =frases_historicas.keys()
+	var estoque_do_produto = 0
+	if produtoAtual == "sururu": estoque_do_produto = Global.sururuEstoque
+	elif produtoAtual == "carapeba": estoque_do_produto = Global.carapebaEstoque
+	elif produtoAtual == "tainha": estoque_do_produto = Global.tainhaEstoque
+	elif produtoAtual == "tilápia": estoque_do_produto = Global.tilapiaEstoque
+	elif produtoAtual == "bagre": estoque_do_produto = Global.bagreEstoque
+	atualizar_interface()
+	
+	var max_kg_possivel = (estoque_do_produto * gramasUnidade) / 1000
+	var maxPedido = min(4, max_kg_possivel) 
+	
+	quantidadePedida = randi_range(1, max(1, maxPedido))
+	
+	# 5. A MATEMÁTICA DA CONTA (Quilos -> Gramas -> Unidades)
+	var gramas_totais = quantidadePedida * 1000
+	var unidades_necessarias = gramas_totais / gramasUnidade
+	
+	totalPorcoes = unidades_necessarias # Guardamos as unidades aqui para subtrair do estoque depois
+	respostaCorreta = unidades_necessarias * precoPorcao
+	
+	dica = "DICA: 1 kg = 1000 gramas.\n1 unidade de %s pesa %d gramas.\nTransforme os kg em gramas." % [produtoAtual, gramasUnidade]
+	curiosidade.text = "CURIOSIDADE: %s" % infoProduto["curiosidade"]
+	
+	var personagens = frases_historicas.keys()
 	var clienteEscolhido = personagens.pick_random()
-	
 	clienteGerado.emit(clienteEscolhido)
 	
 	var frase = frases_historicas[clienteEscolhido].pick_random()
+	var palavraMedida = "quilo" if quantidadePedida == 1 else "quilos"
 	
-	var palavraMedida = tipoMedida["singular"] if quantidadePedida == 1 else tipoMedida["plural"]
-	dica = tipoMedida["dica"]
-	var textoFala = frase % [quantidadePedida,palavraMedida]
-	textoCliente.text = "%s: %s" % [clienteEscolhido,textoFala]
+	var textoFala = frase % [quantidadePedida, palavraMedida, produtoAtual]
+	textoCliente.text = "%s: %s" % [clienteEscolhido, textoFala]
+	textoCliente.visible_characters = 0
+	timerTexto.start(0.04)
 	
 func _process(delta: float) -> void:
-	pass
+	if musicaVenda.playing and musicaVenda.get_playback_position() >=54.30:
+		musicaVenda.play(0)
 
 
 func _on_button_confirma_pressed() -> void:
@@ -141,7 +171,11 @@ func _on_button_confirma_pressed() -> void:
 	var respostaJogador = float(texto)
 	if is_equal_approx(respostaJogador,respostaCorreta):
 		Global.dinheiro += respostaCorreta
-		Global.sururuEstoque -= totalPorcoes
+		if produtoAtual == "sururu": Global.sururuEstoque -= totalPorcoes
+		elif produtoAtual == "carapeba": Global.carapebaEstoque -= totalPorcoes
+		elif produtoAtual == "tainha": Global.tainhaEstoque -= totalPorcoes
+		elif produtoAtual == "tilápia": Global.tilapiaEstoque -= totalPorcoes
+		elif produtoAtual == "bagre": Global.bagreEstoque -= totalPorcoes
 		feedback.text = "Conta correta! O cliente pagou R$ %.2f e saiu satisfeito." %respostaCorreta
 		atualizar_interface()
 		
@@ -160,11 +194,12 @@ func _on_button_confirma_pressed() -> void:
 func _on_button_prox_dia_pressed() -> void:
 	Global.diaAtual += 1 
 	Global.venda = false
-	get_tree().change_scene_to_file("res://scenes/coleta/coleta.tscn")
+	fade_out_music(true)
+	get_tree().change_scene_to_file("res://scenes/fechamento/fechamentos.tscn")
 
 
 func _on_button_ajuda_pressed() -> void:
-	if Global.sururuEstoque <= 0:
+	if Global.sururuEstoque <= 0 && Global.bagreEstoque == 0 && Global.carapebaEstoque == 0 && Global.tilapiaEstoque == 0 && Global.tainhaEstoque == 0 :
 		return
 	feedback.text = dica
 
@@ -175,3 +210,28 @@ func _on_button_sair_pressed() -> void:
 	get_parent().visible = false 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_node("/root/Mundo/HUD/Legenda").visible = true
+	fade_out_music(true)
+
+func _on_timer_texto_timeout() -> void:
+	# Verifica se ainda há letras escondidas
+	if textoCliente.visible_characters < textoCliente.text.length():
+		textoCliente.visible_characters += 1
+		var letraAtual = textoCliente.text[textoCliente.visible_characters -1]
+		if letraAtual != "":
+			somTexto.pitch_scale = randf_range(0.95, 1.05) 
+			somTexto.play()
+	else:
+		timerTexto.stop()
+func fade_in_music():
+	if not musicaVenda.playing:
+		musicaVenda.volume_db = - 80.0
+		musicaVenda.play()
+	var tween = create_tween()
+	tween.tween_property(musicaVenda,"volume_db",-10,0.6)
+func fade_out_music(pararFinal: bool = false):
+	var tween = create_tween()
+	tween.tween_property(musicaVenda, "volume_db",-80,1.5)
+	if pararFinal:
+		tween.tween_callback(musicaVenda.stop)
+	return tween
+	

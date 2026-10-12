@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bym6a5jhroptf" path="res://scenes/coleta/coleta_teste.tscn" id="3_6g45r"]
 [ext_resource type="PackedScene" uid="uid://dsplrl4776br1" path="res://scenes/barco_madeira/barco_teste.tscn" id="4_aby3l"]
 [ext_resource type="FontFile" uid="uid://0lxqlx4d0550" path="res://fontes/SedgwickAveDisplay-Regular.ttf" id="5_l8dpl"]
+[ext_resource type="AudioStream" uid="uid://bbhgetjv0r51s" path="res://sounds/coletaSoundtrack.wav" id="6_f7ikl"]
 
 [sub_resource type="Environment" id="Environment_vtrxb"]
 
@@ -13,6 +14,9 @@ albedo_color = Color(0.25882354, 0.14901961, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s575f"]
 size = Vector3(17.298346, 3.1523438, 16.639965)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vq7ns"]
+size = Vector3(16.952805, 6.4814453, 16.204498)
 
 [node name="Coleta" type="Node3D" unique_id=1661856497]
 script = ExtResource("1_k6von")
@@ -36,9 +40,11 @@ size = Vector3(4.3200684, 1, 4.3320313)
 material = SubResource("StandardMaterial3D_wn222")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1270404210]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1779581080]
 transform = Transform3D(0.7514001, 0, 0.65984684, 0, 1, 0, -0.65984684, 0, 0.7514001, 0.37456608, 1.1900787, -0.121761054)
+visible = false
 shape = SubResource("BoxShape3D_s575f")
 
 [node name="Coletaveis" type="Node3D" parent="." unique_id=110123117]
@@ -53,3 +59,22 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("5_l8dpl")
 theme_override_font_sizes/font_size = 30
 text = "Pressione \"Q\" para voltar à tenda."
+
+[node name="Count" type="Label" parent="CanvasLayer" unique_id=1699029787]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5_l8dpl")
+theme_override_font_sizes/font_size = 30
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1200641463]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=225401304]
+transform = Transform3D(0.7569951, 0, 0.65342057, 0, 1, 0, -0.65342057, 0, 0.7569951, 0.5596526, 2.7407227, 0.021056727)
+shape = SubResource("BoxShape3D_vq7ns")
+
+[node name="ColetaMusic" type="AudioStreamPlayer" parent="." unique_id=11628957]
+stream = ExtResource("6_f7ikl")
