@@ -27,6 +27,16 @@ albedo_color = Color(0.25882354, 0.14901961, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_vq7ns"]
 size = Vector3(11.916237, 1, 12.065685)
 
+[sub_resource type="MeshTexture" id="MeshTexture_vq7ns"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s575f"]
+albedo_color = Color(0.13333334, 0.54509807, 0.13333334, 1)
+roughness_texture = SubResource("MeshTexture_vq7ns")
+roughness_texture_channel = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3swdx"]
+size = Vector3(6.5603027, 2.4838867, 2.6279144)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_s575f"]
 size = Vector3(2.5422058, 6.2126465, 2.6486816)
 
@@ -63,7 +73,71 @@ shape = SubResource("BoxShape3D_vq7ns")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.9467297, 1.1254086, -2.7476888)
 
 [node name="TendaLagoa2" parent="." unique_id=120857903 instance=ExtResource("4_giaku")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.369151, 0, -2.7871346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.378886, -0.009536266, -2.7853818)
+
+[node name="Folhas" type="Node3D" parent="TendaLagoa2" unique_id=1239732332]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=2033089046]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, -1.4666495, 2.4000652, 2.5805988)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D14" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=103608864]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, -2.6289577, 2.4000652, 2.5805988)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D13" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=1958538244]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, -1.7602506, 2.7546883, 2.8189557)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=92535633]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0.7966976, 3.3174841, -0.5775695)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=1936693126]
+transform = Transform3D(1.4999323, -0.009286585, -0.0030434355, 0.01399212, 0.9997253, 0.032254554, 0.002743097, -0.021520987, 1.4996501, 2.7460601, 3.3597744, -1.9273696)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D12" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=295759906]
+transform = Transform3D(1.4999323, -0.009286585, -0.0030434355, 0.01399212, 0.9997253, 0.032254554, 0.002743097, -0.021520987, 1.4996501, 2.4104962, 3.658724, -2.3210244)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=11488831]
+transform = Transform3D(1.5, 0, 0, 0, 0.89596504, -0.66618687, 0, 0.44412458, 1.3439475, 1.5776606, 3.2054634, -0.56603026)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=1218932043]
+transform = Transform3D(-0.5254495, 0.01130219, -1.4048543, 0, 0.9999272, 0.018100154, 1.4049566, 0.004226986, -0.52541125, -3.2661734, 4.5739975, 3.2070956)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=1717443440]
+transform = Transform3D(-0.5254495, 0.01130219, -1.4048543, 0, 0.9999272, 0.018100154, 1.4049566, 0.004226986, -0.52541125, -3.2661734, 4.0336313, 3.2070956)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D11" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=9343544]
+transform = Transform3D(-0.5254495, 0.01130219, -1.4048543, 0, 0.9999272, 0.018100154, 1.4049566, 0.004226986, -0.52541125, -3.9470444, 4.0336313, 3.5996013)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=24346485]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 1.8987169, 5.3540955, -0.9378824)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=469921111]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 2.2198434, 4.9693165, -1.105856)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D9" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=256599139]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 2.2198434, 4.3966675, -1.105856)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=2080176311]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 2.2198434, 4.9693165, -0.31526542)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="AreaBarco" type="Area3D" parent="TendaLagoa2" unique_id=2119624795]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TendaLagoa2/AreaBarco" unique_id=1904753373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5104, 1.6975315, -4.0333424)
+shape = SubResource("BoxShape3D_3swdx")
 
 [node name="Area3D2" type="Area3D" parent="." unique_id=1536296709]
 transform = Transform3D(-0.00017846933, -0.0029179454, -0.33498725, 0.33437517, -0.02045128, 0, -0.0204505, -0.33436242, 0.002923398, -0.3405199, 1.4085655, -5.6403303)
@@ -118,5 +192,6 @@ visible = false
 
 [connection signal="body_entered" from="Area3D" to="CharacterBody3D" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="CharacterBody3D" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="TendaLagoa2/AreaBarco" to="." method="_on_area_barco_body_entered"]
 [connection signal="body_entered" from="Area3D2" to="." method="_on_area_3d_2_body_entered"]
 [connection signal="body_exited" from="Area3D2" to="." method="_on_area_3d_2_body_exited"]

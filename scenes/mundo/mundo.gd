@@ -42,8 +42,8 @@ func _on_area_3d_2_body_entered(body: Node3D) -> void:
 func _on_area_3d_2_body_exited(body: Node3D) -> void:
 	if body.name == "CharacterBody3D": 
 		jogadorPertoTenda = false
-		if Global.sururuEstoque <= 0: legenda.text = "Retorne a tenda para avançar para o próximo dia."
-		else :  legenda.text = "Temos dinheiro a fazer! Volte para a tenda."
+		if Global.sururuEstoque <= 0: legenda.text = "Siga para o Barco para avançar."
+		else :  legenda.text = "Ainda podemos fazer dinheiro!"
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interagir") and jogadorPertoTenda and not Global.venda:
 		abrir_loja()
@@ -56,3 +56,14 @@ func abrir_loja():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	telaVenda.get_child(0).entrada.grab_focus()
 	telaVenda.get_child(0).fade_in_music()
+
+
+func _on_area_barco_body_entered(body: Node3D) -> void:
+	if body.name == "CharacterBody3D": 
+		
+		Global.venda = false
+		
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE 
+		
+		# Manda o jogador para a tela de cálculos financeiros
+		Transicao.mudar_cena("res://scenes/fechamento/fechamentos.tscn")

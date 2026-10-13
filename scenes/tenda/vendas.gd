@@ -6,9 +6,7 @@ signal clienteGerado(nomeCliente)
 @onready var entrada = $HBoxContainer/Math/MarginContainer/VBoxContainer/Entrada
 @onready var buttonConfirma = $HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonConfirma
 @onready var feedback = $HBoxContainer/Math/MarginContainer/VBoxContainer/Feedback
-@onready var buttonProxDia = $ButtonProxDia
 @onready var confirma = $HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonConfirma/Confirma
-@onready var proximoDia = $"HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonProxDia/Próximo dia"
 @onready var ajuda = $HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonAjuda/Ajuda
 @onready var curiosidade = $HBoxContainer/Math/MarginContainer/VBoxContainer/Curiosidade
 @onready var sair = $HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonSair/Sair
@@ -90,7 +88,6 @@ func _ready() -> void:
 func atualizar_interface():
 	sair.text = "Sair"
 	ajuda.text = "Ajuda"
-	proximoDia.text = "Proximo dia"
 	confirma.text = "Confirmar"
 	infoDia.text = "Venda"
 	infoDinheiro.text = "Dinheiro: R$ %.2f" % Global.dinheiro
@@ -116,7 +113,7 @@ func gerar_novo_cliente():
 	if (Global.bagreEstoque * catalogo["bagre"]["gramas"]) >= 1000: produtosDisponiveis.append("bagre")
 	
 	if produtosDisponiveis.size() == 0:
-		textoCliente.text = "Seu estoque de pescados está baixo e a clientela se mandou! Avance para encerrar as vendas."
+		textoCliente.text = "Seu estoque de pescados está baixo e a clientela se mandou! Pressione 'Sair' e ande até o barco para avançar"
 		entrada.visible = false
 		buttonConfirma.visible = false
 		produtoAtual = "sururu" 
