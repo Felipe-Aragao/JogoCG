@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	var throttle := Input.get_axis("move_down", "move_up")
 	var steering := Input.get_axis("move_left", "move_right")
 	
-	# Toca som de remar enquanto estiver acelerando ou em movimento
+	# Toca som ao remar
 	if absf(throttle) > 0.01 or absf(_current_speed) > 0.5:
 		if not _som_remo.playing:
 			_som_remo.play()

@@ -7,22 +7,22 @@ var sensibilidade= 0.003
 @export var som_terra: AudioStream
 @export var som_agua: AudioStream
 
-# Pega a referência do nó da câmera 
+# Referência da câmera
 @onready var camera = $Camera3D
 
 func _ready():
-	# Esconde e prende o cursor no centro da tela
+	# Prende cursor na tela
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 
 func _unhandled_input(event):
 	if Global.venda : return 
 	if event is InputEventMouseMotion:
-		# Rotaciona o corpo inteiro no eixo Y 
+		# Gira corpo no eixo Y
 		rotate_y(-event.relative.x * sensibilidade)
-		# Rotaciona apenas a câmera no eixo X 
+		# Gira câmera no eixo X
 		camera.rotate_x(-event.relative.y * sensibilidade)
-		# Trava a rotação da câmera para não capotar para trás
+		# Limita inclinação da câmera
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 		
 
@@ -30,9 +30,9 @@ func _physics_process(delta):
 	if Global.venda:
 		return
 	if global_position.y < -5.0:
-		# Reposiciona o jogador no ponto de origem
+		# Reposiciona jogador na origem
 		global_position = Vector3(0, 1, 0)
-		# Zera a inércia da queda para que não atravesse o chão ao reaparecer
+		# Zera velocidade de queda
 		velocity = Vector3.ZERO
 	# Aplica a gravidade
 	if not is_on_floor():
@@ -41,10 +41,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = FORCA_PULO
 
-	# Obtém o vetor 2D das teclas pressionadas (WASD)
+	# Lê direção de movimento
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
-	# Converte o input 2D num vetor de direção 3D, respeitando a rotação atual do personagem
+	# Converte direção para 3D
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
@@ -55,15 +55,15 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, velocidade)
 	var direcao = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
-	# Função nativa do CharacterBody3D para aplicar a velocidade e lidar com colisões
+	# Aplica movimento e colisão
 	move_and_slide()
-	# Aplicação do Som
+	# Gerencia som de passos
 	if is_on_floor() and direcao != Vector2.ZERO:
-		# Toca o som apenas se ele ainda não estiver a ser reproduzido
+		# Inicia som de passos
 		if not $SomPassos.playing:
 			$SomPassos.play()
 	else:
-		# Se parar de andar ou saltar, interrompe o som imediatamente
+		# Interrompe som de passos
 		$SomPassos.stop()
 
 func _on_area_3d_body_entered(body: Node3D) -> void:

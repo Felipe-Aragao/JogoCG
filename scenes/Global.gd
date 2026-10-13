@@ -9,11 +9,10 @@ var tilapiaEstoque: int = 0
 var bagreEstoque: int = 0
 var venda: bool = false
 var dinheiroInicioDia: float = 0.0
-# Called when the node enters the scene tree for the first time.
+# Inicializa estado global
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Processamento a cada frame
 func _process(delta: float) -> void:
 	pass

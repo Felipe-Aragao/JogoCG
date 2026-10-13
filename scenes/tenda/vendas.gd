@@ -76,7 +76,7 @@ var frases_historicas = {
         "A liberdade tem gosto de força e união. Levo %d %s de %s. Qual é a conta?"
 	]
 }
-# Called when the node enters the scene tree for the first time.
+# Inicializa cena de vendas
 func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	atualizar_interface()
@@ -218,7 +218,7 @@ func _on_button_sair_pressed() -> void:
 	fade_out_music(true)
 
 func _on_timer_texto_timeout() -> void:
-	# Verifica se ainda há letras escondidas
+	# Revela letras do texto
 	if textoCliente.visible_characters < textoCliente.text.length():
 		textoCliente.visible_characters += 1
 		var letraAtual = textoCliente.text[textoCliente.visible_characters -1]

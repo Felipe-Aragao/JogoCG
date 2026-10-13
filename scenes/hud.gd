@@ -24,14 +24,14 @@ func mostrar_coleta(mensagem: String) -> void:
 	_tween_aviso.tween_property(aviso_coleta, "modulate:a", 0.0, 0.5)
 
 func _process(_delta: float) -> void:
-	# Converte os segundos restantes em MM:SS
+	# Formata tempo restante MM:SS
 	var tempo_restante := int(ceil(timer_pesca.time_left))
 	var minutos := tempo_restante / 60
 	var segundos := tempo_restante % 60
 	label_timer.text = "%02d:%02d" % [minutos, segundos]
 
 func _on_timer_pesca_timeout() -> void:
-	# Quando os 3 minutos acabam, libera o mouse e vai para a venda
+	# Encerra pesca e avança
 	musica_pesca.stop()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Transicao.mudar_cena("res://scenes/mundo/mundo.tscn")

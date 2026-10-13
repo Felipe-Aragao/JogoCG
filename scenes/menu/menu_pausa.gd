@@ -1,10 +1,10 @@
 extends CanvasLayer
 @onready var click = $ClickSound
 func _ready() -> void:
-	# O menu já nasce invisível sem precisar que outros scripts mandem
+	# Inicia menu oculto
 	hide() 
 
-# Ele mesmo escuta o teclado, independentemente da cena onde for colocado
+# Detecta tecla de pausa
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and not Global.venda:
 		alternar_pausa()

@@ -9,7 +9,7 @@ extends Control
 @onready var click = $ClickSound
 var custoAluguel: float = Global.dinheiro*4/10
 var custoFixo: float = 15.0
-# Called when the node enters the scene tree for the first time.
+# Inicializa fechamento do dia
 func _ready() -> void:
 	confirma.text = "Confirmar"
 	saldos.text = "--- FECHAMENTO DO DIA ---\nSaldo Inicial do Dia: R$ %.2f\nSaldo Atual: R$ %.2f" % [Global.dinheiroInicioDia, Global.dinheiro]
@@ -18,7 +18,7 @@ func _ready() -> void:
 	faturamento.placeholder_text = "Calcule o faturamento"
 	lucro.placeholder_text = "Calcule o lucro"
 	feedback.text = ""
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Atualiza a cada frame
 func _process(delta: float) -> void:
 	pass
 
@@ -32,22 +32,22 @@ func _on_button_avançar_pressed() -> void:
 	var faturamento_real = Global.dinheiro - Global.dinheiroInicioDia
 	var lucro_real = faturamento_real - valor_pago
 	
-	#Aluguel 
+	# Valida custos pagos
 	if valor_pago < custoAluguel + custoFixo:
 		feedback.text = "Custos errados!" 
 		return
 		
-	#Faturamento = Saldo Atual - Saldo Inicial
+	# Valida faturamento informado
 	if not is_equal_approx(faturamento_usuario, faturamento_real):
 		feedback.text = "Faturamento incorreto! Lembre-se: Faturamento é apenas o que entrou"
 		return
 		
-	# Lucro = Faturamento - Custos Pagos
+	# Valida lucro informado
 	if not is_equal_approx(lucro_usuario, lucro_real):
 		feedback.text = "Lucro incorreto! Lembre-se: Lucro é o seu Faturamento menos os Custos que você pagou."
 		return
 		
-	# Acertou
+	# Atualiza dados do dia
 	Global.dinheiro -= valor_pago
 	if Global.dinheiro < 0:
 			Transicao.mudar_cena("res://scenes/menu/menu_over.tscn")

@@ -19,7 +19,7 @@ var mapa_nomes = {
 	"Dandara dos Palmares": "Dandara"
 }
 
-# Called when the node enters the scene tree for the first time.
+# Inicializa cena do mundo
 func _ready() -> void:
 	_transform_inicial_jogador = jogador.global_transform
 	telaVenda.visible = false
@@ -35,7 +35,7 @@ func _mostrar_cliente(nomeCompleto: String) -> void:
 	if nomeCliente != "" and clientes.has_node(nomeCliente):
 		clientes.get_node(nomeCliente).visible = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Processamento a cada frame
 func _process(delta: float) -> void:
 	pass
 
@@ -93,5 +93,5 @@ func ir_para_fechamento() -> void:
 	Global.venda = false
 	iconeEnter.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE 
-	# Manda o jogador para a tela de cálculos financeiros
+	# Abre tela de fechamento
 	Transicao.mudar_cena("res://scenes/fechamento/fechamentos.tscn")
