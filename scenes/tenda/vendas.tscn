@@ -1,0 +1,257 @@
+[gd_scene format=3 uid="uid://b6hk6f8d6jpwh"]
+
+[ext_resource type="Script" uid="uid://dje3oiv1jdqng" path="res://scenes/tenda/vendas.gd" id="1_xonyo"]
+[ext_resource type="FontFile" uid="uid://0lxqlx4d0550" path="res://fontes/SedgwickAveDisplay-Regular.ttf" id="2_tb6an"]
+[ext_resource type="AudioStream" uid="uid://bax52fnh4m0og" path="res://sounds/text_blip.wav" id="3_44cdj"]
+[ext_resource type="AudioStream" path="res://sounds/soundtrack/VendaSoundTrack.mp3" id="4_5dfyg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq7ns"]
+bg_color = Color(0.24313726, 0.15294118, 0.13725491, 0.44313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s575f"]
+content_margin_left = 25.0
+content_margin_top = 25.0
+content_margin_right = 25.0
+content_margin_bottom = 25.0
+bg_color = Color(0.24313726, 0.15294118, 0.13725491, 0.44313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3swdx"]
+bg_color = Color(0.24313726, 0.15294118, 0.13725491, 0.44313726)
+
+[node name="CenaVendas" type="Control" unique_id=1240857978]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xonyo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=798752873]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Estoque" type="Panel" parent="HBoxContainer" unique_id=2128276296]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="PanelContainer" parent="HBoxContainer/Estoque" unique_id=841953872]
+layout_mode = 1
+offset_right = 250.0
+offset_bottom = 168.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vq7ns")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Estoque/MarginContainer" unique_id=1077727435]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.24313726, 0.15294118, 0.13725491, 0.44313726)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Estoque/MarginContainer" unique_id=1480230614]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="InfoDia" type="Label" parent="HBoxContainer/Estoque/MarginContainer/VBoxContainer" unique_id=1535243175]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_tb6an")
+theme_override_font_sizes/font_size = 25
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Estoque/MarginContainer/VBoxContainer" unique_id=247642175]
+layout_mode = 2
+
+[node name="InfoDinheiro" type="Label" parent="HBoxContainer/Estoque/MarginContainer/VBoxContainer" unique_id=1389958950]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tb6an")
+theme_override_font_sizes/font_size = 25
+
+[node name="InfoEstoque" type="Label" parent="HBoxContainer/Estoque/MarginContainer/VBoxContainer" unique_id=794574750]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tb6an")
+theme_override_font_sizes/font_size = 25
+
+[node name="InfoPreco" type="Label" parent="HBoxContainer/Estoque/MarginContainer/VBoxContainer" unique_id=711835512]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tb6an")
+theme_override_font_sizes/font_size = 25
+
+[node name="Central" type="Control" parent="HBoxContainer" unique_id=334920445]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="MarginContainer" type="PanelContainer" parent="HBoxContainer/Central" unique_id=1044914094]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s575f")
+
+[node name="TextoCliente" type="Label" parent="HBoxContainer/Central/MarginContainer" unique_id=1033084085]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_tb6an")
+theme_override_font_sizes/font_size = 23
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Math" type="Panel" parent="HBoxContainer" unique_id=655869761]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="PanelContainer" parent="HBoxContainer/Math" unique_id=915875074]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3swdx")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Math/MarginContainer" unique_id=1481568646]
+visible = false
+layout_mode = 2
+color = Color(0.24313726, 0.15294118, 0.13725491, 0.44313726)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Math/MarginContainer" unique_id=757367505]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Entrada" type="LineEdit" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=1102845722]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.8679181, 0.86802036, 0.93462974, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_tb6an")
+theme_override_font_sizes/font_size = 25
+placeholder_text = "Digite o valor aqui"
+
+[node name="ButtonAjuda" type="Button" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=245968668]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Ajuda" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonAjuda" unique_id=1297333080]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -11.5
+offset_right = 125.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_tb6an")
+theme_override_font_sizes/font_size = 25
+autowrap_mode = 3
+
+[node name="Feedback" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=1791606917]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_tb6an")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
+[node name="ButtonConfirma" type="Button" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=507574054]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Confirma" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonConfirma" unique_id=480094228]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -11.5
+offset_right = 125.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.34654784, 0.98906153, 0.48951948, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_tb6an")
+theme_override_font_sizes/font_size = 25
+autowrap_mode = 3
+
+[node name="Curiosidade" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=1117584976]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_tb6an")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
+[node name="ButtonSair" type="Button" parent="HBoxContainer/Math/MarginContainer/VBoxContainer" unique_id=1081099940]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sair" type="Label" parent="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonSair" unique_id=733175962]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -14.0
+offset_right = 125.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.34117648, 0.1254902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_tb6an")
+theme_override_font_sizes/font_size = 25
+autowrap_mode = 3
+
+[node name="TimerTexto" type="Timer" parent="." unique_id=1837341213]
+
+[node name="SomTexto" type="AudioStreamPlayer" parent="." unique_id=908643847]
+stream = ExtResource("3_44cdj")
+volume_db = -10.0
+
+[node name="MusicaVenda" type="AudioStreamPlayer" parent="." unique_id=2026413360]
+stream = ExtResource("4_5dfyg")
+volume_db = -0.27
+
+[connection signal="pressed" from="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonAjuda" to="." method="_on_button_ajuda_pressed"]
+[connection signal="pressed" from="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonConfirma" to="." method="_on_button_confirma_pressed"]
+[connection signal="pressed" from="HBoxContainer/Math/MarginContainer/VBoxContainer/ButtonSair" to="." method="_on_button_sair_pressed"]

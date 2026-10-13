@@ -1,0 +1,216 @@
+[gd_scene format=3 uid="uid://dnauh4mq0qm42"]
+
+[ext_resource type="Script" uid="uid://ci3fhqnivtei1" path="res://scenes/mundo/mundo.gd" id="1_0r531"]
+[ext_resource type="PackedScene" uid="uid://b6hk6f8d6jpwh" path="res://scenes/tenda/vendas.tscn" id="2_wajt0"]
+[ext_resource type="PackedScene" uid="uid://bs0vku7xc8krn" path="res://scenes/tenda/jogad.tscn" id="3_kdk4d"]
+[ext_resource type="PackedScene" uid="uid://dr6vutmikovqr" path="res://scenes/tenda/tenda_lagoa.tscn" id="4_giaku"]
+[ext_resource type="FontFile" uid="uid://0lxqlx4d0550" path="res://fontes/SedgwickAveDisplay-Regular.ttf" id="5_cs5nd"]
+[ext_resource type="PackedScene" uid="uid://jgghysrbwq3e" path="res://models/personagens/Dandara.glb" id="6_sh3s5"]
+[ext_resource type="PackedScene" uid="uid://cke88pw5ecg1l" path="res://models/personagens/Zumbie.glb" id="7_55pe8"]
+[ext_resource type="PackedScene" uid="uid://ccr76u8valj2o" path="res://models/personagens/Nizie.glb" id="8_7n5et"]
+[ext_resource type="PackedScene" uid="uid://cpy6iwdh37yyw" path="res://models/personagens/Marechal.glb" id="10_t6nhy"]
+[ext_resource type="PackedScene" uid="uid://c7n4kni56dyw8" path="res://models/personagens/Graciliana.glb" id="11_55pe8"]
+[ext_resource type="PackedScene" uid="uid://cemb8af5qoy47" path="res://models/personagens/Hermete.glb" id="11_sh3s5"]
+[ext_resource type="Texture2D" uid="uid://h8tvj26suk4t" path="res://assets/keyboard/Dark/Enter_Key_Dark.png" id="12_enter"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_05uab"]
+
+[sub_resource type="Sky" id="Sky_3swdx"]
+sky_material = SubResource("ProceduralSkyMaterial_05uab")
+
+[sub_resource type="Environment" id="Environment_vq7ns"]
+background_mode = 2
+sky = SubResource("Sky_3swdx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1h3ma"]
+albedo_color = Color(0.25882354, 0.14901961, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vq7ns"]
+size = Vector3(11.916237, 1, 12.065685)
+
+[sub_resource type="MeshTexture" id="MeshTexture_vq7ns"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s575f"]
+albedo_color = Color(0.13333334, 0.54509807, 0.13333334, 1)
+roughness_texture = SubResource("MeshTexture_vq7ns")
+roughness_texture_channel = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3swdx"]
+size = Vector3(6.5603027, 2.4838867, 2.6279144)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s575f"]
+size = Vector3(2.5422058, 6.2126465, 2.6486816)
+
+[node name="Mundo" type="Node3D" unique_id=462846195]
+script = ExtResource("1_0r531")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=725608115]
+transform = Transform3D(1, 0, 0, 0, -0.24087846, 0.9705553, 0, -0.9705553, -0.24087846, -9.411821, 4.2942934, -10.742998)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=856902878]
+environment = SubResource("Environment_vq7ns")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=576680202]
+transform = Transform3D(43, 0, 0, 0, 1.17, 0, 0, 0, 43, -5.87, -0.72, -2.285)
+use_collision = true
+material = SubResource("StandardMaterial3D_1h3ma")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1674605817]
+transform = Transform3D(-10.706091, 0, 12.261889, 0, 1.17, 0, -11.890317, 0, -11.040656, -4.89, -0.115, -2.88)
+use_collision = true
+
+[node name="Area3D" type="Area3D" parent="." unique_id=10805969]
+transform = Transform3D(5.2271085, 0, -4.6408443, 0, 6.99, 0, 4.6408443, 0, 5.2271085, 5.502, 0.483, 18.171581)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=798131268]
+transform = Transform3D(0.37447718, 0, 0.33131078, 0, 0.5, 0, -0.33131078, 0, 0.37447718, -3.168, -0.3, -1.126)
+shape = SubResource("BoxShape3D_vq7ns")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1284760781]
+
+[node name="CenaVendas" parent="CanvasLayer" unique_id=1240857978 instance=ExtResource("2_wajt0")]
+
+[node name="CharacterBody3D" parent="." unique_id=299560997 instance=ExtResource("3_kdk4d")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.9467297, 1.1254086, -2.7476888)
+
+[node name="TendaLagoa2" parent="." unique_id=120857903 instance=ExtResource("4_giaku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.378886, -0.009536266, -2.7853818)
+
+[node name="Folhas" type="Node3D" parent="TendaLagoa2" unique_id=1239732332]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=2033089046]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, -1.4666495, 2.4000652, 2.5805988)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D14" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=103608864]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, -2.6289577, 2.4000652, 2.5805988)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D13" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=1958538244]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, -1.7602506, 2.7546883, 2.8189557)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=92535633]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0.7966976, 3.3174841, -0.5775695)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=1936693126]
+transform = Transform3D(1.4999323, -0.009286585, -0.0030434355, 0.01399212, 0.9997253, 0.032254554, 0.002743097, -0.021520987, 1.4996501, 2.7460601, 3.3597744, -1.9273696)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D12" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=295759906]
+transform = Transform3D(1.4999323, -0.009286585, -0.0030434355, 0.01399212, 0.9997253, 0.032254554, 0.002743097, -0.021520987, 1.4996501, 2.4104962, 3.658724, -2.3210244)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=11488831]
+transform = Transform3D(1.5, 0, 0, 0, 0.89596504, -0.66618687, 0, 0.44412458, 1.3439475, 1.5776606, 3.2054634, -0.56603026)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=1218932043]
+transform = Transform3D(-0.5254495, 0.01130219, -1.4048543, 0, 0.9999272, 0.018100154, 1.4049566, 0.004226986, -0.52541125, -3.2661734, 4.5739975, 3.2070956)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=1717443440]
+transform = Transform3D(-0.5254495, 0.01130219, -1.4048543, 0, 0.9999272, 0.018100154, 1.4049566, 0.004226986, -0.52541125, -3.2661734, 4.0336313, 3.2070956)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D11" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=9343544]
+transform = Transform3D(-0.5254495, 0.01130219, -1.4048543, 0, 0.9999272, 0.018100154, 1.4049566, 0.004226986, -0.52541125, -3.9470444, 4.0336313, 3.5996013)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=24346485]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 1.8987169, 5.3540955, -0.9378824)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=469921111]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 2.2198434, 4.9693165, -1.105856)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D9" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=256599139]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 2.2198434, 4.3966675, -1.105856)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="TendaLagoa2/Folhas" unique_id=2080176311]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 2.2198434, 4.9693165, -0.31526542)
+material = SubResource("StandardMaterial3D_s575f")
+
+[node name="AreaBarco" type="Area3D" parent="TendaLagoa2" unique_id=2119624795]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TendaLagoa2/AreaBarco" unique_id=1904753373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5104, 1.6975315, -4.0333424)
+shape = SubResource("BoxShape3D_3swdx")
+
+[node name="Area3D2" type="Area3D" parent="." unique_id=1536296709]
+transform = Transform3D(-0.00017846933, -0.0029179454, -0.33498725, 0.33437517, -0.02045128, 0, -0.0204505, -0.33436242, 0.002923398, -0.3405199, 1.4085655, -5.6403303)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" unique_id=337636899]
+transform = Transform3D(1.0800034, -2.9802322e-08, 9.313226e-10, 0, 1.0793421, -0.03769145, 0, 0.03769146, 1.0793421, -2.123065, -8.600654, -9.849884)
+shape = SubResource("BoxShape3D_s575f")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=531053592]
+
+[node name="Legenda" type="Label" parent="HUD" unique_id=256646193]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_cs5nd")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IconeEnter" type="TextureRect" parent="HUD" unique_id=256646194]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -140.0
+offset_right = 48.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("12_enter")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Clientes" type="Node3D" parent="." unique_id=2044320224]
+transform = Transform3D(0.415, 0, 0, 0, 0.415, 0, 0, 0, 0.415, 1.2716147, 0.8, -2.217913)
+
+[node name="Dandara" parent="Clientes" unique_id=765655431 instance=ExtResource("6_sh3s5")]
+transform = Transform3D(-0.04361942, 0, 0.9990482, 0, 1, 0, -0.9990482, 0, -0.04361942, 0.816, 1.445, -0.849)
+visible = false
+
+[node name="Zumbi" parent="Clientes" unique_id=1221203272 instance=ExtResource("7_55pe8")]
+transform = Transform3D(-0.04361942, 0, 0.9990482, 0, 1, 0, -0.9990482, 0, -0.04361942, 0.816, 1.445, -0.849)
+visible = false
+
+[node name="Nise" parent="Clientes" unique_id=415933148 instance=ExtResource("8_7n5et")]
+transform = Transform3D(-0.04361942, 0, 0.9990482, 0, 1, 0, -0.9990482, 0, -0.04361942, 0.816, 1.445, -0.849)
+visible = false
+
+[node name="Marechal" parent="Clientes" unique_id=310473922 instance=ExtResource("10_t6nhy")]
+transform = Transform3D(-0.04361942, 0, 0.9990482, 0, 1, 0, -0.9990482, 0, -0.04361942, 0.816, 1.445, -0.849)
+visible = false
+
+[node name="Hermeto" parent="Clientes" unique_id=467924325 instance=ExtResource("11_sh3s5")]
+transform = Transform3D(-0.04361942, 0, 0.9990482, 0, 1, 0, -0.9990482, 0, -0.04361942, 0.816, 1.445, -0.849)
+visible = false
+
+[node name="Graciliano" parent="Clientes" unique_id=1259044169 instance=ExtResource("11_55pe8")]
+transform = Transform3D(-0.04361942, 0, 0.9990482, 0, 1, 0, -0.9990482, 0, -0.04361942, 0.816, 1.445, -0.849)
+visible = false
+
+[connection signal="body_entered" from="Area3D" to="CharacterBody3D" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="CharacterBody3D" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="TendaLagoa2/AreaBarco" to="." method="_on_area_barco_body_entered"]
+[connection signal="body_exited" from="TendaLagoa2/AreaBarco" to="." method="_on_area_barco_body_exited"]
+[connection signal="body_entered" from="Area3D2" to="." method="_on_area_3d_2_body_entered"]
+[connection signal="body_exited" from="Area3D2" to="." method="_on_area_3d_2_body_exited"]

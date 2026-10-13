@@ -11,16 +11,19 @@ config_version=5
 [application]
 
 config/name="JogoCG"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="uid://bwudfog2phrgb"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*uid://de0fsp8a1mjfg"
+Transicao="*uid://cdrtw1qrtptan"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
