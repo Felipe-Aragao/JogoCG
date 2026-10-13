@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bqnyjghsxpefw"]
+
+[ext_resource type="Script" uid="uid://jd6478iq3gns" path="res://scenes/menu/menu_pausa.gd" id="1_bdoxg"]
+[ext_resource type="FontFile" uid="uid://0lxqlx4d0550" path="res://fontes/SedgwickAveDisplay-Regular.ttf" id="2_48u1o"]
+[ext_resource type="AudioStream" uid="uid://dm7kcpxkipwb" path="res://sounds/clickSound.wav" id="3_bdoxg"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=278671659]
+script = ExtResource("1_bdoxg")
+
+[node name="MenuPausa" type="Control" parent="." unique_id=176837946]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1925.0
+offset_bottom = 1070.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="MenuPausa" unique_id=1035227721]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.32156864)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPausa" unique_id=580661572]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -42.0
+offset_right = 36.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonJogar" type="Button" parent="MenuPausa/VBoxContainer" unique_id=679857472]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_48u1o")
+theme_override_font_sizes/font_size = 100
+text = "Jogar"
+
+[node name="ButtonMenu" type="Button" parent="MenuPausa/VBoxContainer" unique_id=907446055]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_48u1o")
+theme_override_font_sizes/font_size = 100
+text = "Menu"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=719401566]
+stream = ExtResource("3_bdoxg")
+volume_db = -12.0
+
+[connection signal="pressed" from="MenuPausa/VBoxContainer/ButtonJogar" to="." method="_on_button_jogar_pressed"]
+[connection signal="pressed" from="MenuPausa/VBoxContainer/ButtonMenu" to="." method="_on_button_menu_pressed"]

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bnmt1mqroj3i6" path="res://scenes/tenda/jogador.gd" id="1_8ci8k"]
 [ext_resource type="AudioStream" uid="uid://bc72fmpwpopde" path="res://sounds/grass.wav" id="2_67lp1"]
 [ext_resource type="AudioStream" uid="uid://cawq0c4e8dwy0" path="res://sounds/water.wav" id="3_1jl4f"]
+[ext_resource type="PackedScene" uid="uid://bqnyjghsxpefw" path="res://scenes/menu/menu_pausa.tscn" id="4_67lp1"]
+[ext_resource type="PackedScene" uid="uid://d2q1s6wflhom0" path="res://models/personagens/personagem.glb" id="5_1jl4f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s575f"]
 
@@ -15,17 +17,23 @@ som_terra = ExtResource("2_67lp1")
 som_agua = ExtResource("3_1jl4f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=391301665]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.25253743, 0)
+transform = Transform3D(1.545, 0, 0, 0, 1.545, 0, 0, 0, 1.545, 0, -0.25253743, 0)
 shape = SubResource("CapsuleShape3D_s575f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=560570934]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.13061523, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_s575f")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1208314329]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 0.23, 0.21)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 0.12201594, -0.89795303)
 fov = 74.07965
 
 [node name="SomPassos" type="AudioStreamPlayer" parent="." unique_id=796503898]
 stream = ExtResource("2_67lp1")
 volume_db = -12.0
+
+[node name="CanvasLayer" parent="." unique_id=278671659 instance=ExtResource("4_67lp1")]
+
+[node name="personagem" parent="." unique_id=524562696 instance=ExtResource("5_1jl4f")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

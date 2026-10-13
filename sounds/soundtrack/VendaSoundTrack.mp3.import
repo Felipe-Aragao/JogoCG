@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/VendaSoundTrack.mp3-eb19573c458907817858870fc
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

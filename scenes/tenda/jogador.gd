@@ -13,6 +13,7 @@ var sensibilidade= 0.003
 func _ready():
 	# Esconde e prende o cursor no centro da tela
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 
 func _unhandled_input(event):
 	if Global.venda : return 
@@ -24,10 +25,10 @@ func _unhandled_input(event):
 		# Trava a rotação da câmera para não capotar para trás
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 		
-	if event.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _physics_process(delta):
+	if Global.venda:
+		return
 	if global_position.y < -5.0:
 		# Reposiciona o jogador no ponto de origem
 		global_position = Vector3(0, 1, 0)

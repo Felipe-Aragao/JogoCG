@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://br476kk3hmoiu" path="res://scenes/fechamento/fechamentos.gd" id="1_4ullw"]
 [ext_resource type="FontFile" uid="uid://0lxqlx4d0550" path="res://fontes/SedgwickAveDisplay-Regular.ttf" id="2_2r7nw"]
+[ext_resource type="AudioStream" uid="uid://bwmx7luuknowg" path="res://sounds/no.wav" id="3_re1qs"]
 
 [node name="Control" type="Control" unique_id=1980164859]
 layout_mode = 3
@@ -95,5 +96,8 @@ layout_mode = 2
 size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("2_2r7nw")
 theme_override_font_sizes/font_size = 25
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=1527834836]
+stream = ExtResource("3_re1qs")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonAvançar" to="." method="_on_button_avançar_pressed"]

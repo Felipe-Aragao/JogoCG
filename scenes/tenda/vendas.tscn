@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dje3oiv1jdqng" path="res://scenes/tenda/vendas.gd" id="1_xonyo"]
 [ext_resource type="FontFile" uid="uid://0lxqlx4d0550" path="res://fontes/SedgwickAveDisplay-Regular.ttf" id="2_tb6an"]
 [ext_resource type="AudioStream" uid="uid://bax52fnh4m0og" path="res://sounds/text_blip.wav" id="3_44cdj"]
-[ext_resource type="AudioStream" path="res://sounds/soundtrack/VendaSoundTrack.mp3" id="4_5dfyg"]
+[ext_resource type="AudioStream" uid="uid://cooom5qukjriw" path="res://sounds/soundtrack/VendaSoundTrack.mp3" id="4_5dfyg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq7ns"]
 bg_color = Color(0.24313726, 0.15294118, 0.13725491, 0.44313726)
