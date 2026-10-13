@@ -6,14 +6,17 @@ extends CharacterBody3D
 @export_group("Movement")
 @export var move_speed := 18.0
 @export var reverse_speed := 8.0
-@export var acceleration := 20.0
-@export var rotation_speed := 2.0
+@export var acceleration := 15.0
+@export var deceleration := 8.0
+@export var rotation_speed := 1.5
+@export var turn_smoothness := 5.0
 @export_range(0.0, 1.0) var min_turn_ratio := 0.15
 
 var _camera_input_direction := Vector2.ZERO
+var _current_speed := 0.0
+var _current_steering := 0.0
 
 @onready var _camera_pivot: Node3D = %Pivot
-@onready var _camera: Camera3D = %Camera3D
 @onready var _skin: Node3D = %BoatSkin
 
 # Captura ou solta mouse
@@ -32,6 +35,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if is_camera_motion:
 		_camera_input_direction = event.screen_relative * mouse_sensitivity
 
+# Atualiza física do barco
 func _physics_process(delta: float) -> void:
 	# Aplica gravidade
 	if not is_on_floor():
@@ -41,23 +45,38 @@ func _physics_process(delta: float) -> void:
 	_camera_pivot.rotation.y -= _camera_input_direction.x * delta
 	_camera_input_direction = Vector2.ZERO
 	
-	# Lê controles de movimento
-	var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	# Lê acelerador e leme
+	var throttle := Input.get_axis("move_down", "move_up")
+	var steering := Input.get_axis("move_left", "move_right")
 	
-	# Gira barco conforme velocidade
-	var current_speed: float = Vector2(velocity.x, velocity.z).length()
-	var speed_factor: float = lerpf(min_turn_ratio, 1.0, clampf(current_speed / move_speed, 0.0, 1.0))
-	rotate_y(-raw_input.x * rotation_speed * speed_factor * delta)
+	# Calcula velocidade e desaceleração
+	var max_speed := move_speed if throttle >= 0.0 else reverse_speed
+	var target_speed := throttle * max_speed
+	var accel_rate := acceleration if throttle != 0.0 else deceleration
+	_current_speed = move_toward(_current_speed, target_speed, accel_rate * delta)
 	
-	# Calcula direção e velocidade
+	# Suaviza virada do leme
+	_current_steering = move_toward(_current_steering, steering, turn_smoothness * delta)
+	var speed_ratio := clampf(absf(_current_speed) / move_speed, 0.0, 1.0)
+	var speed_factor := lerpf(min_turn_ratio, 1.0, speed_ratio)
+	rotate_y(-_current_steering * rotation_speed * speed_factor * delta)
+	
+	# Inclina casco na curva
+	_skin.rotation.z = lerpf(_skin.rotation.z, _current_steering * speed_ratio * 0.15, 6.0 * delta)
+	
+	# Aplica velocidade ao casco
 	var forward := transform.basis.z
-	var move_direction := forward * (-raw_input.y)
-	move_direction.y = 0.0
-	move_direction = move_direction.normalized()
-	
-	# Aplica aceleração e movimento
-	var target_speed: float = move_speed if raw_input.y <= 0.0 else reverse_speed
-	var target_velocity := move_direction * target_speed
-	velocity.x = move_toward(velocity.x, target_velocity.x, acceleration * delta)
-	velocity.z = move_toward(velocity.z, target_velocity.z, acceleration * delta)
+	velocity.x = forward.x * _current_speed
+	velocity.z = forward.z * _current_speed
 	move_and_slide()
+	
+	# Reduz velocidade ao bater
+	if is_on_wall():
+		_current_speed = velocity.dot(forward)
+
+# Trava barco na pesca
+func set_pescando(ativo: bool) -> void:
+	_current_speed = 0.0
+	_current_steering = 0.0
+	velocity = Vector3.ZERO
+	set_physics_process(not ativo)

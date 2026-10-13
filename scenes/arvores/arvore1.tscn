@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ct5agdu6k2mnc"]
+
+[ext_resource type="PackedScene" uid="uid://c3736rtr35c3y" path="res://models/arvores/arvore1.glb" id="1_1nhvn"]
+
+[node name="Arvore1" type="Node3D" unique_id=287919536]
+
+[node name="arvore1" parent="." unique_id=1789421806 instance=ExtResource("1_1nhvn")]

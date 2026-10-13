@@ -1,11 +1,14 @@
 extends Node3D
 
+@export var cena_minigame: PackedScene = preload("res://scenes/MinigamePesca.tscn")
 @export var multiplicador_pulso := 2
 
 @onready var area_pesca: Area3D = $pesca
 @onready var mesh: MeshInstance3D = $pesca/MeshInstance3D
+@onready var aviso_ui: CanvasLayer = $AvisoUI
 
-var barco_em_cima := false
+var barco_atual: CharacterBody3D = null
+var pescando := false
 
 # Conecta sinais e animação
 func _ready() -> void:
@@ -27,19 +30,38 @@ func _iniciar_animacao_pulso() -> void:
 # Detecta entrada do barco
 func _on_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D or body.name == "Barco":
-		barco_em_cima = true
+		barco_atual = body as CharacterBody3D
+		aviso_ui.visible = not pescando
 
 # Detecta saída do barco
 func _on_body_exited(body: Node3D) -> void:
-	if body is CharacterBody3D or body.name == "Barco":
-		barco_em_cima = false
+	if body == barco_atual:
+		barco_atual = null
+		aviso_ui.visible = false
 
-# Coleta ao pressionar Espaço
+# Inicia pesca no Espaço
 func _unhandled_input(event: InputEvent) -> void:
-	if barco_em_cima and event.is_action_pressed("jump"):
+	if barco_atual and not pescando and event.is_action_pressed("jump"):
 		get_viewport().set_input_as_handled()
-		coletar_ponto()
+		iniciar_minigame()
 
-# Remove ponto atual
-func coletar_ponto() -> void:
-	queue_free()
+# Abre tela do minigame
+func iniciar_minigame() -> void:
+	pescando = true
+	aviso_ui.visible = false
+	barco_atual.set_pescando(true)
+	
+	var minigame := cena_minigame.instantiate()
+	get_tree().current_scene.add_child(minigame)
+	minigame.finalizado.connect(_on_minigame_finalizado)
+
+# Finaliza pesca e libera
+func _on_minigame_finalizado(sucesso: bool) -> void:
+	if barco_atual:
+		barco_atual.set_pescando(false)
+	
+	if sucesso:
+		queue_free()
+	else:
+		pescando = false
+		aviso_ui.visible = barco_atual != null

@@ -9,7 +9,7 @@ backface_collision = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_spd14"]
 size = Vector3(0.018437501, 0.021240234, 0.011917114)
 
-[node name="Node3D" type="Node3D" unique_id=778900227]
+[node name="Node3D2" type="Node3D" unique_id=778900227]
 
 [node name="Terreno2" parent="." unique_id=1902910490 instance=ExtResource("1_y7y4h")]
 

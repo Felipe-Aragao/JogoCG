@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://blkhhcayurg0r"]
+
+[ext_resource type="Script" uid="uid://cxwlkcwfotcre" path="res://scenes/minigame_pesca.gd" id="1_minigame"]
+[ext_resource type="Texture2D" uid="uid://mc7exqx61k0" path="res://assets/keyboard/Dark/Space_Key_Dark.png" id="2_space"]
+
+[node name="MinigamePesca" type="CanvasLayer" unique_id=1435791735]
+script = ExtResource("1_minigame")
+
+[node name="Barra" type="ColorRect" parent="." unique_id=1750358185]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -20.0
+offset_right = 200.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47782934, 0.2434566, 0.026411027, 1)
+
+[node name="ZonaAlvo" type="ColorRect" parent="Barra" unique_id=2047649898]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 40.0
+color = Color(0.3317765, 0.4795689, 0.17870566, 1)
+
+[node name="Cursor" type="ColorRect" parent="Barra" unique_id=548331020]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 40.0
+
+[node name="IconeEspaco" type="TextureRect" parent="." unique_id=884736251]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 32.0
+offset_right = 64.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_space")
+expand_mode = 1
+stretch_mode = 5
+

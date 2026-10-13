@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://457d5h0ueoav"]
+
+[ext_resource type="PackedScene" uid="uid://bb3kkbxpn44vr" path="res://models/arvores/arvore2.glb" id="1_4j8rl"]
+
+[node name="Arvore2" type="Node3D" unique_id=2030161675]
+
+[node name="arvore2" parent="." unique_id=2020994593 instance=ExtResource("1_4j8rl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
