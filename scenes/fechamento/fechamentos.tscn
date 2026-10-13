@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://j41ab45y1n3i"]
 
 [ext_resource type="Script" uid="uid://br476kk3hmoiu" path="res://scenes/fechamento/fechamentos.gd" id="1_4ullw"]
+[ext_resource type="FontFile" uid="uid://0lxqlx4d0550" path="res://fontes/SedgwickAveDisplay-Regular.ttf" id="2_2r7nw"]
 
 [node name="Control" type="Control" unique_id=1980164859]
 layout_mode = 3
@@ -40,26 +41,38 @@ layout_mode = 2
 [node name="Saldos" type="Label" parent="MarginContainer/VBoxContainer" unique_id=344960731]
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_2r7nw")
+theme_override_font_sizes/font_size = 25
 
 [node name="Custos" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1217048770]
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_2r7nw")
+theme_override_font_sizes/font_size = 25
 
 [node name="Aluguel" type="LineEdit" parent="MarginContainer/VBoxContainer" unique_id=312048731]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_2r7nw")
+theme_override_font_sizes/font_size = 25
 
 [node name="Faturamento" type="LineEdit" parent="MarginContainer/VBoxContainer" unique_id=303409497]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_2r7nw")
+theme_override_font_sizes/font_size = 25
 
 [node name="Lucro" type="LineEdit" parent="MarginContainer/VBoxContainer" unique_id=497691399]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_2r7nw")
+theme_override_font_sizes/font_size = 25
 
 [node name="ButtonAvançar" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1525075133]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_2r7nw")
+theme_override_font_sizes/font_size = 25
 
 [node name="confirma" type="Label" parent="MarginContainer/VBoxContainer/ButtonAvançar" unique_id=1722760403]
 layout_mode = 1
@@ -74,9 +87,13 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_2r7nw")
+theme_override_font_sizes/font_size = 25
 
 [node name="Feedback" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1047623747]
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_2r7nw")
+theme_override_font_sizes/font_size = 25
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonAvançar" to="." method="_on_button_avançar_pressed"]

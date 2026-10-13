@@ -15,6 +15,9 @@ signal clienteGerado(nomeCliente)
 @onready var timerTexto = $TimerTexto
 @onready var somTexto = $SomTexto
 @onready var musicaVenda = $MusicaVenda
+@onready var infoDinheiro = $HBoxContainer/Estoque/MarginContainer/VBoxContainer/InfoDinheiro
+@onready var infoEstoque = $HBoxContainer/Estoque/MarginContainer/VBoxContainer/InfoEstoque
+@onready var infoPreco = $HBoxContainer/Estoque/MarginContainer/VBoxContainer/InfoPreco
 var dica: String = ""
 var precoPorcao: float = 5.0
 var quantidadePedida: int = 0
@@ -89,12 +92,16 @@ func atualizar_interface():
 	ajuda.text = "Ajuda"
 	proximoDia.text = "Proximo dia"
 	confirma.text = "Confirmar"
-	
-	infoDia.text = "Dia: %d |\nDinheiro: R$ %.2f |\nEstoque (Unidade):\nSururu: %d\nCarapeba: %d\nTainha :%d
-	Tilapia: %d\nBagre: %d|\nPreço %s:R$%.2f" % [
-		Global.diaAtual, Global.dinheiro, Global.sururuEstoque,Global.carapebaEstoque,
-		Global.tainhaEstoque,Global.tilapiaEstoque,Global.bagreEstoque, produtoAtual, precoPorcao
+	infoDia.text = "Venda"
+	infoDinheiro.text = "Dinheiro: R$ %.2f" % Global.dinheiro
+	infoEstoque.text = "Estoque (Unidades):\nSururu: %d\nCarapeba: %d\nTainha: %d\nTilápia: %d\nBagre: %d" % [
+		Global.sururuEstoque, 
+		Global.carapebaEstoque, 
+		Global.tainhaEstoque, 
+		Global.tilapiaEstoque, 
+		Global.bagreEstoque
 	]
+	infoPreco.text = "\nPreço %s: R$ %.2f" % [produtoAtual, precoPorcao]
 	
 func gerar_novo_cliente(): 
 	entrada.text = ""
@@ -136,11 +143,10 @@ func gerar_novo_cliente():
 	
 	quantidadePedida = randi_range(1, max(1, maxPedido))
 	
-	# 5. A MATEMÁTICA DA CONTA (Quilos -> Gramas -> Unidades)
 	var gramas_totais = quantidadePedida * 1000
 	var unidades_necessarias = gramas_totais / gramasUnidade
 	
-	totalPorcoes = unidades_necessarias # Guardamos as unidades aqui para subtrair do estoque depois
+	totalPorcoes = unidades_necessarias 
 	respostaCorreta = unidades_necessarias * precoPorcao
 	
 	dica = "DICA: 1 kg = 1000 gramas.\n1 unidade de %s pesa %d gramas.\nTransforme os kg em gramas." % [produtoAtual, gramasUnidade]
@@ -195,7 +201,7 @@ func _on_button_prox_dia_pressed() -> void:
 	Global.diaAtual += 1 
 	Global.venda = false
 	fade_out_music(true)
-	get_tree().change_scene_to_file("res://scenes/fechamento/fechamentos.tscn")
+	Transicao.mudar_cena("res://scenes/fechamento/fechamentos.tscn")
 
 
 func _on_button_ajuda_pressed() -> void:

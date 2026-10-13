@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cdrtw1qrtptan"]
+
+[ext_resource type="Script" uid="uid://cb6rhqdbpk7qj" path="res://scenes/transicao/transicao.gd" id="1_1sq1x"]
+
+[node name="Transicao" type="CanvasLayer" unique_id=1124144194]
+script = ExtResource("1_1sq1x")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1642671795]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

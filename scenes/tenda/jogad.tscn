@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bs0vku7xc8krn"]
 
-[ext_resource type="Script" uid="uid://bnmt1mqroj3i6" path="res://scenes/jogador.gd" id="1_8ci8k"]
+[ext_resource type="Script" uid="uid://bnmt1mqroj3i6" path="res://scenes/tenda/jogador.gd" id="1_8ci8k"]
 [ext_resource type="AudioStream" uid="uid://bc72fmpwpopde" path="res://sounds/grass.wav" id="2_67lp1"]
 [ext_resource type="AudioStream" uid="uid://cawq0c4e8dwy0" path="res://sounds/water.wav" id="3_1jl4f"]
 

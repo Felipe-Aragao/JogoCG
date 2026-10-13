@@ -7,17 +7,14 @@ extends Node3D
 @export var altura_agua: float = 0.23 # 
 @onready var pasta_coletaveis = $Coletaveis
 @onready var count = $CanvasLayer/Count
-@onready var coletaMusic = $ColetaMusic
+
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	coletaMusic.play()
 	# O randomize() garante que as posições sejam sempre diferentes 
 	randomize() 
 	espalhar_sururus()
 func _process(delta: float):
-	if coletaMusic.playing and coletaMusic.get_playback_position() >= 350:
-		coletaMusic.play(0)
 	count.text = "Sururu: %d" % Global.sururuEstoque
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_Q:

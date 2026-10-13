@@ -47,9 +47,8 @@ func _on_button_avançar_pressed() -> void:
 		
 	# Acertou
 	Global.dinheiro -= valor_pago
-	Global.dinheiroInicioDia = Global.dinheiro # O saldo final de hoje é o saldo inicial de amanhã
+	Global.dinheiroInicioDia = Global.dinheiro 
 	Global.diaAtual += 1
 	
-	# Global.sururuEstoque = 0 
-	# Vai para coleta
-	get_tree().change_scene_to_file("res://scenes/mundo/mundo.tscn")
+	
+	Transicao.mudar_cena("res://scenes/mundo/mundo.tscn")

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bwudfog2phrgb"]
+
+[ext_resource type="Script" uid="uid://dvnu2i2hiagf1" path="res://scenes/menu/menu_principal.gd" id="1_28145"]
+[ext_resource type="FontFile" uid="uid://0lxqlx4d0550" path="res://fontes/SedgwickAveDisplay-Regular.ttf" id="2_4mcpf"]
+[ext_resource type="AudioStream" uid="uid://bjive7e4fhias" path="res://sounds/menuSound.wav" id="3_28145"]
+[ext_resource type="AudioStream" uid="uid://dm7kcpxkipwb" path="res://sounds/clickSound.wav" id="4_4mcpf"]
+
+[node name="MenuPrincipal" type="Control" unique_id=1558713829]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_28145")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=461775849]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.54509807, 0.54509807, 1)
+
+[node name="NomeJogo" type="Label" parent="." unique_id=1372574234]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -219.0
+offset_right = 219.0
+offset_bottom = 76.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_4mcpf")
+theme_override_font_sizes/font_size = 80
+text = "Saberes da Lagoa"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=135950610]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -263.5
+offset_top = -94.0
+offset_right = 263.5
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="ButtonJogar" type="Button" parent="VBoxContainer" unique_id=1250155760]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4mcpf")
+theme_override_font_sizes/font_size = 60
+text = "Jogar"
+
+[node name="ButtonSair" type="Button" parent="VBoxContainer" unique_id=986430430]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4mcpf")
+theme_override_font_sizes/font_size = 60
+text = "Sair"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=565648443]
+stream = ExtResource("3_28145")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=738209133]
+stream = ExtResource("4_4mcpf")
+
+[connection signal="pressed" from="VBoxContainer/ButtonJogar" to="." method="_on_button_jogar_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonSair" to="." method="_on_button_sair_pressed"]

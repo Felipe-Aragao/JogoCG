@@ -93,27 +93,27 @@ vertical_alignment = 1
 transform = Transform3D(0.415, 0, 0, 0, 0.415, 0, 0, 0, 0.415, 1.2716147, 0.8, -2.217913)
 
 [node name="Dandara" parent="Clientes" unique_id=765655431 instance=ExtResource("6_sh3s5")]
-transform = Transform3D(-0.34202012, 0, 0.9396926, 0, 1, 0, -0.9396926, 0, -0.34202012, 0.80586624, 1.445, 1.0209999)
+transform = Transform3D(-0.04361942, 0, 0.9990482, 0, 1, 0, -0.9990482, 0, -0.04361942, 0.816, 1.445, -0.849)
 visible = false
 
 [node name="Zumbi" parent="Clientes" unique_id=1221203272 instance=ExtResource("7_55pe8")]
-transform = Transform3D(-0.34202012, 0, 0.9396926, 0, 1, 0, -0.9396926, 0, -0.34202012, 0.80586624, 1.445, 1.0209999)
+transform = Transform3D(-0.04361942, 0, 0.9990482, 0, 1, 0, -0.9990482, 0, -0.04361942, 0.816, 1.445, -0.849)
 visible = false
 
 [node name="Nise" parent="Clientes" unique_id=415933148 instance=ExtResource("8_7n5et")]
-transform = Transform3D(-0.34202012, 0, 0.9396926, 0, 1, 0, -0.9396926, 0, -0.34202012, 0.80586624, 1.445, 1.0209999)
+transform = Transform3D(-0.04361942, 0, 0.9990482, 0, 1, 0, -0.9990482, 0, -0.04361942, 0.816, 1.445, -0.849)
 visible = false
 
 [node name="Marechal" parent="Clientes" unique_id=310473922 instance=ExtResource("10_t6nhy")]
-transform = Transform3D(-0.34202012, 0, 0.9396926, 0, 1, 0, -0.9396926, 0, -0.34202012, 0.80586624, 1.445, 1.0209999)
+transform = Transform3D(-0.04361942, 0, 0.9990482, 0, 1, 0, -0.9990482, 0, -0.04361942, 0.816, 1.445, -0.849)
 visible = false
 
 [node name="Hermeto" parent="Clientes" unique_id=467924325 instance=ExtResource("11_sh3s5")]
-transform = Transform3D(-0.34202012, 0, 0.93969256, 0, 1, 0, -0.93969256, 0, -0.34202012, 0.3825338, 1.445, 1.0209999)
+transform = Transform3D(-0.04361942, 0, 0.9990482, 0, 1, 0, -0.9990482, 0, -0.04361942, 0.816, 1.445, -0.849)
 visible = false
 
 [node name="Graciliano" parent="Clientes" unique_id=1259044169 instance=ExtResource("11_55pe8")]
-transform = Transform3D(-0.3420201, 0, 0.93969256, 0, 1, 0, -0.93969256, 0, -0.3420201, 0.3825338, 1.445, 1.0209999)
+transform = Transform3D(-0.04361942, 0, 0.9990482, 0, 1, 0, -0.9990482, 0, -0.04361942, 0.816, 1.445, -0.849)
 visible = false
 
 [connection signal="body_entered" from="Area3D" to="CharacterBody3D" method="_on_area_3d_body_entered"]

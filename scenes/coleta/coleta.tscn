@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bym6a5jhroptf" path="res://scenes/coleta/coleta_teste.tscn" id="3_6g45r"]
 [ext_resource type="PackedScene" uid="uid://dsplrl4776br1" path="res://scenes/barco_madeira/barco_teste.tscn" id="4_aby3l"]
 [ext_resource type="FontFile" uid="uid://0lxqlx4d0550" path="res://fontes/SedgwickAveDisplay-Regular.ttf" id="5_l8dpl"]
-[ext_resource type="AudioStream" uid="uid://bbhgetjv0r51s" path="res://sounds/coletaSoundtrack.wav" id="6_f7ikl"]
 
 [sub_resource type="Environment" id="Environment_vtrxb"]
 
@@ -75,6 +74,3 @@ theme_override_font_sizes/font_size = 30
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=225401304]
 transform = Transform3D(0.7569951, 0, 0.65342057, 0, 1, 0, -0.65342057, 0, 0.7569951, 0.5596526, 2.7407227, 0.021056727)
 shape = SubResource("BoxShape3D_vq7ns")
-
-[node name="ColetaMusic" type="AudioStreamPlayer" parent="." unique_id=11628957]
-stream = ExtResource("6_f7ikl")

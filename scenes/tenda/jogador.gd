@@ -3,7 +3,7 @@ extends CharacterBody3D
 var velocidade = 5.0
 const FORCA_PULO = 3.5
 var gravidade = ProjectSettings.get_setting("physics/3d/default_gravity")
-var sensibilidade_rato = 0.003
+var sensibilidade= 0.003
 @export var som_terra: AudioStream
 @export var som_agua: AudioStream
 
@@ -18,9 +18,9 @@ func _unhandled_input(event):
 	if Global.venda : return 
 	if event is InputEventMouseMotion:
 		# Rotaciona o corpo inteiro no eixo Y 
-		rotate_y(-event.relative.x * sensibilidade_rato)
+		rotate_y(-event.relative.x * sensibilidade)
 		# Rotaciona apenas a câmera no eixo X 
-		camera.rotate_x(-event.relative.y * sensibilidade_rato)
+		camera.rotate_x(-event.relative.y * sensibilidade)
 		# Trava a rotação da câmera para não capotar para trás
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 		
